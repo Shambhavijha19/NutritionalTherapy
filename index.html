@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#418943">
+    <meta name="description" content="Personalized nutrition plans by Dt. Shreya - Expert nutritional therapy and diet consultation">
+    <meta name="keywords" content="nutritionist, diet plan, nutrition therapy, Dt. Shreya, health consultant">
+    <link rel="icon" type="image/png" href="images/leaf-logo.png">
+    <title>Nutritional Therapy by Dt. Shreya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/leaf-logo.png" alt="Leaf Logo">
+                <h1>Nutritional Therapy</h1>
+                <p class="subtitle">By Dt. Shreya</p>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Book Appointment</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Path to Better Health Through Nutrition</h1>
+            <p>Personalized nutrition plans tailored to your unique health needs</p>
+            <a href="#appointment" class="btn">Book a Consultation</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+    <h2>About Dt. Shreya</h2>
+    <div class="divider"></div>
+    <div class="about-content">
+        <!-- Inverted Layout: Text first, then Image -->
+        <div class="about-text" style="text-align: justify;">
+            <h3>Experienced Nutritional Therapist</h3>
+            <p>
+                Dt. Shreya is a dedicated and accomplished Nutritionist with a Master's degree in Nutrition and Dietetics, proudly recognized as an Allied Healthcare Professional. She currently serves as a Consultant Nutritionist at "Dr. Reddy" and brings valuable clinical experience from her previous role at Felix Hospital Noida, where she provided comprehensive nutritional care to diverse patient populations.
+            </p>
+            <p>
+                With a solid academic background and current expertise in nutritional science, she offers personalized diet plans, lifestyle guidance, and practical wellness strategies—whether you're managing weight, addressing health conditions, or simply striving to feel your best.
+            </p>
+            <p>
+                She is currently accepting new clients and would love to support you in building sustainable, healthy habits that truly last.
+            </p>
+            <h4>Areas of Expertise:</h4>
+            <ul>
+                <li><i class="fas fa-leaf"></i> Clinical Nutrition</li>
+                <li><i class="fas fa-leaf"></i> Sports Nutrition</li>
+                <li><i class="fas fa-leaf"></i> Weight Management</li>
+                <li><i class="fas fa-leaf"></i> Preventive and Functional Nutrition</li>
+                <li><i class="fas fa-leaf"></i> Therapeutic Diet Planning</li>
+                <li><i class="fas fa-leaf"></i> Gut and Digestive Wellness</li>
+                <li><i class="fas fa-leaf"></i> Women's Health & Hormonal Balance</li>
+                <li><i class="fas fa-leaf"></i> Nutrition for Mental Well-being</li>
+            </ul>
+            <p class="philosophy">"Let food be thy medicine, and medicine be thy food." – Hippocrates</p>
+        </div>
+
+        <!-- Inverted Layout: Image second -->
+        <div class="about-image">
+            <img src="images/shreya didi profile.jpg" alt="Dt. Shreya">
+        </div>
+    </div>
+</section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="divider"></div>
+
+        <div class="services-tabs-container">
+            <div class="services-tabs">
+                <button class="service-tab active" data-service="assessment">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Nutritional Assessment</span>
+                </button>
+                <button class="service-tab" data-service="meal-planning">
+                    <i class="fas fa-utensils"></i>
+                    <span>Meal Planning</span>
+                </button>
+                <button class="service-tab" data-service="therapeutic">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Therapeutic Diets</span>
+                </button>
+                <button class="service-tab" data-service="counseling">
+                    <i class="fas fa-comments"></i>
+                    <span>Nutritional Counseling</span>
+                </button>
+            </div>
+
+            <div class="service-content-container">
+                <div class="service-content active" id="assessment">
+                    <div class="service-header">
+                        <h3>Nutritional Assessment</h3>
+                        <div class="service-icon-large">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                    </div>
+                    <p class="service-description">Comprehensive evaluation of your current health status, dietary habits, and nutritional needs.</p>
+                    <div class="service-details">
+                        <h4>Our nutritional assessment includes:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Detailed dietary history</li>
+                            <li><i class="fas fa-check-circle"></i> Analysis of current eating patterns</li>
+                            <li><i class="fas fa-check-circle"></i> Evaluation of nutritional deficiencies</li>
+                            <li><i class="fas fa-check-circle"></i> Body composition analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Health goals discussion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-content" id="meal-planning">
+                    <div class="service-header">
+                        <h3>Personalized Meal Planning</h3>
+                        <div class="service-icon-large">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <p class="service-description">Custom meal plans designed specifically for your nutritional needs, preferences, and lifestyle.</p>
+                    <div class="service-details">
+                        <h4>Our meal planning services include:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Daily or weekly meal schedules</li>
+                            <li><i class="fas fa-check-circle"></i> Portion size recommendations</li>
+                            <li><i class="fas fa-check-circle"></i> Grocery shopping lists</li>
+                            <li><i class="fas fa-check-circle"></i> Recipe suggestions and alternatives</li>
+                            <li><i class="fas fa-check-circle"></i> Consideration of food preferences and allergies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-content" id="therapeutic">
+                    <div class="service-header">
+                        <h3>Therapeutic Diets</h3>
+                        <div class="service-icon-large">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <p class="service-description">Specialized nutrition plans for managing specific health conditions and promoting healing.</p>
+                    <div class="service-details">
+                        <h4>We offer therapeutic diets for conditions including:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Diabetes management</li>
+                            <li><i class="fas fa-check-circle"></i> Heart disease and hypertension</li>
+                            <li><i class="fas fa-check-circle"></i> Digestive disorders (IBS, GERD, etc.)</li>
+                            <li><i class="fas fa-check-circle"></i> Food allergies and intolerances</li>
+                            <li><i class="fas fa-check-circle"></i> Weight management</li>
+                            <li><i class="fas fa-check-circle"></i> Autoimmune conditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-content" id="counseling">
+                    <div class="service-header">
+                        <h3>Nutritional Counseling</h3>
+                        <div class="service-icon-large">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <p class="service-description">One-on-one guidance to help you understand nutrition principles and make sustainable changes.</p>
+                    <div class="service-details">
+                        <h4>Our counseling approach includes:</h4>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Education on nutrition fundamentals</li>
+                            <li><i class="fas fa-check-circle"></i> Behavior change strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Emotional aspects of eating</li>
+                            <li><i class="fas fa-check-circle"></i> Practical tips for healthy eating</li>
+                            <li><i class="fas fa-check-circle"></i> Support for overcoming challenges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="who-i-serve-container">
+            <div class="dropdown-toggle">
+                <h3>Who I Serve</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="who-i-serve collapsed">
+                <div class="client-types-grid">
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Individuals with Medical Conditions</h4>
+                        <p>For Clinical Nutrition Therapy</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h4>Children & Teens</h4>
+                        <p>For Pediatric Nutrition</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h4>Women at Every Life Stage</h4>
+                        <p>Covers Women's Health & Prenatal Nutrition</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h4>Athletes & Fitness Enthusiasts</h4>
+                        <p>For Sports Nutrition</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h4>Older Adults & Seniors</h4>
+                        <p>For Geriatric Nutrition</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h4>Clients with Digestive Concerns</h4>
+                        <p>For Gut Health Programs</p>
+                    </div>
+
+                    <div class="client-type">
+                        <div class="client-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h4>Health-Conscious Individuals</h4>
+                        <p>For Lifestyle & Preventive Health</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="consultation-features">
+            <div class="consultation-header">
+                <h3>All Consultations Include</h3>
+                <p class="consultation-subtitle">Comprehensive support for your nutritional journey</p>
+            </div>
+
+            <div class="features-slider">
+                <div class="features-track">
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h4>Detailed Reports</h4>
+                        <p>Comprehensive documentation of your nutritional plan and progress</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Progress Tracking</h4>
+                        <p>Regular monitoring of your health metrics and dietary adherence</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h4>Follow-up Sessions</h4>
+                        <p>Scheduled check-ins to adjust your plan and address concerns</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Digital Support</h4>
+                        <p>Access to resources and communication between appointments</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h4>Educational Materials</h4>
+                        <p>Personalized nutrition guides and resources to support your journey</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Recipe Collection</h4>
+                        <p>Curated healthy recipes tailored to your dietary needs and preferences</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <h4>Custom Supplement Guidance</h4>
+                        <p>Personalized recommendations for vitamins and supplements based on your needs</p>
+                    </div>
+
+                    <div class="feature-slide">
+                        <div class="feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Corporate Wellness Program</h4>
+                        <p>Specialized nutrition plans and workshops for workplace wellness initiatives</p>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-arrow prev" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-arrow next" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment" class="appointment">
+    <h2>Book an Appointment</h2>
+    <div class="divider"></div>
+    <form id="appointment-form" action="https://formsubmit.co/shreya022055@gmail.com" method="POST" enctype="multipart/form-data">
+        <!-- FormSubmit configuration -->
+        <input type="hidden" name="_next" value="https://shreyanutricare.live/thank-you.html">
+        <input type="hidden" name="_url" value="https://shreyanutricare.live/index.html">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Appointment Request - Nutritional Therapy">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="00_Service_Type" value="21-Days Personalized Meal Planning, Monitoring & Evaluation (₹599)">
+        <input type="hidden" name="00_Form_Source" value="Nutritional Therapy Website - shreyanutricare.live">
+        
+        <div class="form-group">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" name="01_Full_Name" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age*</label>
+                <input type="number" id="age" name="02_Age" required min="1" max="120">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender*</label>
+                <select id="gender" name="03_Gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address*</label>
+            <input type="email" id="email" name="04_Email_Address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number*</label>
+            <input type="tel" id="phone" name="05_Phone_Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="problem">Problem Statement*</label>
+            <textarea id="problem" name="06_Health_Concern_Problem_Statement" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="preferred-date">Preferred Date*</label>
+            <input type="date" id="preferred-date" name="07_Preferred_Appointment_Date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="preferred-time">Preferred Time*</label>
+            <select id="preferred-time" name="08_Preferred_Time_Slot" required>
+                <option value="">Select Time</option>
+                <option value="Morning (7AM - 8AM)">Morning (7AM - 8AM)</option>
+                <option value="Night (8PM - 9PM)">Night (8PM - 9PM)</option>
+                <option value="Night (9PM - 10PM)">Night (9PM - 10PM)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="additional-notes">Additional Notes</label>
+            <textarea id="additional-notes" name="09_Additional_Notes_Comments" rows="3"></textarea>
+        </div>
+
+        <div class="payment-info-box">
+            <div class="payment-highlight">
+                To proceed with the <b>21-Days Personalized Meal Planning, Monitoring & Evaluation</b>, please make the payment of:
+            </div>
+            <div class="payment-details">
+                <div class="amount-section">
+                    <span class="amount-label">Amount:</span>
+                    <span class="amount">₹599</span>
+                </div>
+                <div class="payment-options">
+                    <!-- QR Code download button -->
+                    <a href="#" 
+                       class="upi-link" 
+                       onclick="downloadQRCode(event)">
+                        <i class="fas fa-qrcode"></i>
+                        Download QR
+                    </a>
+                    <!-- Alternate payment button for mobile -->
+                    <a href="#" 
+                       class="upi-id-copy" 
+                       onclick="copyUPIId(event)">
+                        <i class="fas fa-copy"></i>
+                        Copy UPI ID
+                    </a>
+                    <!-- View QR button -->
+                    <a href="#" 
+                       class="view-qr-btn" 
+                       onclick="toggleQRView(event)">
+                        <i class="fas fa-eye"></i>
+                        View QR
+                    </a>
+                </div>
+                
+                <!-- QR Code display area (initially hidden) -->
+                <div id="qr-display" class="qr-display-container" style="display: none;">
+                    <div class="qr-image-wrapper">
+                        <img src="images/qr shreya.jpeg" alt="Payment QR Code" class="qr-display-image">
+                        <p class="qr-instructions">Scan this QR code with any UPI app to make payment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-note">
+                <i class="fas fa-info-circle"></i>
+                <div class="note-text">
+                    <p>Kindly share the payment confirmation screenshot once done.</p>
+                    <p>Your personalized plan will begin immediately after confirmation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="payment-proof">Upload Payment Proof* (Image, PDF, or Screenshot)</label>
+            <input type="file" id="payment-proof" name="10_Payment_Proof_Screenshot" accept="image/*,.pdf" required>
+            <div class="payment-required">
+                <i class="fas fa-info-circle"></i>
+                Accepted formats: JPG, PNG, GIF, PDF (Max size: 10MB)
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Submit Appointment Request</button>
+    </form>
+</section>
+
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="divider"></div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What should I expect during my first consultation?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>During your first consultation, we will discuss your health history, current diet, lifestyle, and health goals. I will perform a nutritional assessment and create a personalized plan tailored to your specific needs. The initial consultation typically lasts about 60-90 minutes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How often will I need to schedule appointments?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>After the initial consultation, follow-up appointments are typically scheduled every 2-4 weeks depending on your specific needs and goals. As you progress, the frequency may decrease to monthly or quarterly check-ins for maintenance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can you help with specific health conditions?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I specialize in creating therapeutic diets for various health conditions including diabetes, hypertension, digestive disorders (IBS, GERD, etc.), weight management, hormonal imbalances, and more. Each plan is customized to address your specific health concerns.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you provide meal plans?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, I provide detailed meal plans tailored to your preferences, lifestyle, and nutritional needs. These can be daily or weekly plans with recipes and shopping lists to make implementation easier.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long will it take to see results?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Results vary depending on your specific goals and health condition. Some clients notice improvements in energy and digestion within a few weeks, while other changes like weight loss or managing chronic conditions may take longer. We'll set realistic expectations during your consultation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="divider"></div>
+        <div class="contact-info">
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>9334820030</p>
+                <a href="tel:9334820030" class="btn btn-sm">Call Now</a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>shreya022055@gmail.com</p>
+                <a href="mailto:shreya022055@gmail.com" class="btn btn-sm">Send Email</a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p>Connect with Dt. Shreya</p>
+                <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" class="btn btn-sm">View Profile</a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p>9334820030</p>
+                <a href="https://wa.me/919334820030" target="_blank" class="btn btn-sm">Message</a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>@nutritional_therapy__</p>
+                <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" class="btn btn-sm">View Profile</a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer>
+    <div class="footer-content">
+        <!-- Brand - Left -->
+        <div class="footer-brand">
+            <img src="images/leaf-logo.png" alt="Leaf Logo" style="width:65px; background:#fff; border-radius:8px; margin-bottom:18px;">
+            <h2 style="margin-left:0; font-weight:700; font-size:2rem;">Nutritional Therapy</h2>
+            <p style="margin-left:0; font-size:1.2rem;">By Dt. Shreya</p>
+        </div>
+        
+        <!-- Quick Links - Center -->
+        <div class="footer-links">
+            <h3 style="font-weight:700; font-size:1.35rem; margin-bottom:18px;">Quick Links</h3>
+            <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:16px;"><a href="#home" style="color:#fff; text-decoration:none; font-size:1.15rem;">Home</a></li>
+                <li style="margin-bottom:16px;"><a href="#about" style="color:#fff; text-decoration:none; font-size:1.15rem;">About</a></li>
+                <li style="margin-bottom:16px;"><a href="#services" style="color:#fff; text-decoration:none; font-size:1.15rem;">Services</a></li>
+                <li style="margin-bottom:16px;"><a href="#appointment" style="color:#fff; text-decoration:none; font-size:1.15rem;">Book Appointment</a></li>
+                <li style="margin-bottom:16px;"><a href="#faq" style="color:#fff; text-decoration:none; font-size:1.15rem;">FAQ</a></li>
+                <li><a href="#contact" style="color:#fff; text-decoration:none; font-size:1.15rem;">Contact</a></li>
+            </ul>
+        </div>
+        
+        <!-- Contact Info - Right -->
+        <div class="footer-contact">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-phone"></i>+91 9334820030</p>
+            <p><i class="fas fa-envelope"></i>shreya022055@gmail.com</p>
+            <div class="social-links" style="display:flex; gap:15px; justify-content:flex-end; margin-top:20px;">
+                <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/919334820030" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+        <div class="thank-you-message">
+        <p>Thank you for visiting Nutritional Therapy by Dt. Shreya.</p>
+        <p>Let's begin this journey towards better health together.</p>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+    <script>
+// Function to copy UPI ID to clipboard
+function copyUPIId(event) {
+    event.preventDefault();
+    const upiId = "shreya022055@oksbi";
+    
+    // Try to use the modern clipboard API
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(upiId).then(function() {
+            showCopyMessage("UPI ID copied to clipboard!");
+        }).catch(function() {
+            fallbackCopyTextToClipboard(upiId);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopyTextToClipboard(upiId);
+    }
+}
+
+// Function to download QR code
+function downloadQRCode(event) {
+    event.preventDefault();
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = 'images/qr shreya.jpeg';
+    link.download = 'Payment_QR_Code.jpeg';
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show success message
+    showCopyMessage("QR Code downloaded successfully!");
+}
+
+// Function to toggle QR code display
+function toggleQRView(event) {
+    event.preventDefault();
+    
+    const qrDisplay = document.getElementById('qr-display');
+    const button = event.target.closest('.view-qr-btn');
+    const icon = button.querySelector('i');
+    const text = button.childNodes[2]; // Get the text node
+    
+    if (qrDisplay.style.display === 'none' || qrDisplay.style.display === '') {
+        // Show QR code
+        qrDisplay.style.display = 'block';
+        icon.className = 'fas fa-eye-slash';
+        text.textContent = ' Hide QR';
+        
+        // Smooth scroll to QR code
+        setTimeout(() => {
+            qrDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    } else {
+        // Hide QR code
+        qrDisplay.style.display = 'none';
+        icon.className = 'fas fa-eye';
+        text.textContent = ' View QR';
+    }
+}
+
+// Fallback copy function for older browsers
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showCopyMessage("UPI ID copied to clipboard!");
+    } catch (err) {
+        showCopyMessage("Failed to copy. Please copy manually: " + text);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// Function to show copy message
+function showCopyMessage(message) {
+    // Create or update existing message element
+    let messageEl = document.getElementById('copy-message');
+    if (!messageEl) {
+        messageEl = document.createElement('div');
+        messageEl.id = 'copy-message';
+        messageEl.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        `;
+        document.body.appendChild(messageEl);
+    }
+    
+    messageEl.textContent = message;
+    messageEl.style.opacity = '1';
+    messageEl.style.transform = 'translateY(0)';
+    
+    // Hide message after 3 seconds
+    setTimeout(() => {
+        messageEl.style.opacity = '0';
+        messageEl.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            if (messageEl && messageEl.parentNode) {
+                messageEl.parentNode.removeChild(messageEl);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// filepath: c:\Users\jhash\Documents\Nutritionist\index.html
+// Simple in-memory slot tracking (replace with backend for real use)
+const scheduleData = [
+    { date: '2025-07-28', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
+    { date: '2025-07-29', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
+    { date: '2025-07-30', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
+    { date: '2025-07-31', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
+    { date: '2025-08-01', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } }
+];
+let selectedDate = null;
+let selectedTime = null;
+
+function renderDates() {
+    const datesDiv = document.querySelector('.schedule-dates');
+    datesDiv.innerHTML = '';
+    scheduleData.forEach((d, idx) => {
+        const btn = document.createElement('button');
+        btn.textContent = new Date(d.date).toDateString();
+        btn.className = 'date-btn';
+        btn.onclick = () => {
+            selectedDate = idx;
+            selectedTime = null;
+            renderDates();
+            renderTimeSlots();
+        };
+        if (selectedDate === idx) btn.classList.add('active');
+        datesDiv.appendChild(btn);
+    });
+}
+function renderTimeSlots() {
+    const slotsDiv = document.getElementById('time-slots');
+    slotsDiv.innerHTML = '';
+    if (selectedDate === null) return;
+    const slotEntries = Object.entries(scheduleData[selectedDate].slots);
+    slotEntries.forEach(([time, count]) => {
+        const btn = document.createElement('button');
+        btn.textContent = `${time} (${2 - count} slots left)`;
+        btn.className = 'time-btn';
+        btn.disabled = count >= 2;
+        btn.onclick = () => {
+            selectedTime = time;
+            renderTimeSlots();
+            document.getElementById('book-slot-btn').disabled = false;
+        };
+        if (selectedTime === time) btn.classList.add('active');
+        slotsDiv.appendChild(btn);
+    });
+    document.getElementById('book-slot-btn').disabled = !selectedTime;
+}
+document.getElementById('book-slot-btn').onclick = function() {
+    if (selectedDate !== null && selectedTime) {
+        if (scheduleData[selectedDate].slots[selectedTime] < 2) {
+            scheduleData[selectedDate].slots[selectedTime]++;
+            document.getElementById('booking-message').textContent = "Slot booked! (Demo only, not saved)";
+            renderTimeSlots();
+        } else {
+            document.getElementById('booking-message').textContent = "Sorry, this slot is full.";
+        }
+    }
+};
+renderDates();
+</script>
+<style>
+/* filepath: c:\Users\jhash\Documents\Nutritionist\index.html */
+.schedule { margin: 40px 0; }
+.schedule-dates, #time-slots { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+.date-btn, .time-btn { padding: 8px 16px; border: 1px solid #4caf50; background: #fff; cursor: pointer; border-radius: 5px; }
+.date-btn.active, .time-btn.active { background: #4caf50; color: #fff; }
+.date-btn:disabled, .time-btn:disabled { background: #eee; color: #aaa; cursor: not-allowed; }
+#book-slot-btn { margin-top: 10px; }
+#booking-message { margin-top: 10px; color: #388e3c; }
+.payment-info-box {
+    background: #f7fff7;
+    border: 2px solid #4caf50;
+    border-radius: 12px;
+    padding: 24px 20px 18px 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(76,175,80,0.07);
+    max-width: 600px;
+}
+.payment-info-box h3 {
+    color: #388e3c;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.payment-highlight {
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+.amount {
+    color: #388e3c;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.payment-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+.payment-details li {
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+.upi-id {
+    font-family: monospace;
+    background: #e8f5e9;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.qr-code-box {
+    margin: 10px 0 0 0;
+    text-align: left;
+}
+.qr-img {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    background: #fff;
+}
+.payment-note {
+    margin-top: 14px;
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.98rem;
+}
+.payment-note i {
+    color: #388e3c;
+    margin-right: 6px;
+}
+.payment-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.payment-options a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.payment-options a:hover {
+    background: #388e3c;
+    transform: translateY(-1px);
+}
+.view-qr-btn {
+    background: #2196f3 !important;
+}
+.view-qr-btn:hover {
+    background: #1976d2 !important;
+}
+.qr-display-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.qr-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.qr-display-image {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(76,175,80,0.2);
+}
+.qr-instructions {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;
+}
+.thank-you {
+    color: #388e3c;
+    font-weight: 600;
+}
+.thank-you-message {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 1.15rem;
+    color: #388e3c;
+    font-weight: 500;
+}
+@media (max-width: 600px) {
+    .payment-info-box { padding: 14px 6px; }
+    .qr-img { width: 90px; height: 90px; }
+}
+</style>
+
+</body>
+</html>
+
+
