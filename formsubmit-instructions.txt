@@ -1,0 +1,25 @@
+FormSubmit best practices for avoiding 'Please confirm you are human' error:
+
+1. Use a random string (invisible email) in the form action instead of your naked email address. Get this from https://formsubmit.co/ by entering your email and confirming it.
+2. Always set <input type="hidden" name="_captcha" value="false"> to disable reCAPTCHA.
+3. Add a honeypot field: <input type="text" name="_honey" style="display:none"> to catch bots.
+4. Use <input type="hidden" name="_template" value="table"> for better formatting.
+5. Use <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html"> for redirect after submission.
+6. Use <input type="hidden" name="_subject" value="New submission!"> for custom email subject.
+7. Use <input type="hidden" name="_cc" value="another@email.com"> for CC.
+8. For file uploads, set enctype="multipart/form-data" in the form tag.
+9. Do not use AJAX if you disable captcha.
+10. If you still get the error, generate a new random string from FormSubmit and use that in your form action.
+
+Sample form:
+<form action="https://formsubmit.co/your-random-string" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+  <input type="hidden" name="_subject" value="New submission!">
+  <input type="hidden" name="_cc" value="another@email.com">
+  <input type="text" name="_honey" style="display:none">
+  ...your form fields...
+</form>
+
+To fix your issue, generate a new random string from FormSubmit and update your form action. This will avoid the human verification error.
