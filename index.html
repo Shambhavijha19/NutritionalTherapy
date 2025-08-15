@@ -341,23 +341,17 @@
     <section id="appointment" class="appointment">
     <h2>Book an Appointment</h2>
     <div class="divider"></div>
-    <!-- Updated form: removed direct action, added data-endpoint & novalidate -->
-    <form id="appointment-form" data-endpoint="https://formsubmit.co/divyansh8065@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+    <form id="appointment-form" action="https://formsubmit.co/divyansh8065@gmail.com" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_cc" value="shreya022055@gmail.com">
         <!-- FormSubmit configuration -->
         <input type="hidden" name="_next" value="https://shreyanutricare.live/thank-you.html">
         <input type="hidden" name="_url" value="https://shreyanutricare.live/index.html">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" value="New Appointment Request - Nutritional Therapy (Human Verified)">
-        <!-- Removed _captcha=false to allow FormSubmit built-in captcha if needed -->
+        <input type="hidden" name="_subject" value="New Appointment Request - Nutritional Therapy">
+        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="00_Service_Type" value="21-Days Personalized Meal Planning, Monitoring & Evaluation (₹599)">
         <input type="hidden" name="00_Form_Source" value="Nutritional Therapy Website - shreyanutricare.live">
-        <!-- Honeypot + dynamic token placeholders (names set in JS) -->
-        <div class="hp-wrapper" aria-hidden="true">
-            <label for="hp_field" class="visually-hidden">Leave blank</label>
-            <input type="text" id="hp_field" autocomplete="off" tabindex="-1">
-        </div>
-        <input type="hidden" id="dyn_honeypot">
+        
         <div class="form-group">
             <label for="name">Full Name*</label>
             <input type="text" id="name" name="01_Full_Name" required>
@@ -473,11 +467,7 @@
                 Accepted formats: JPG, PNG, GIF, PDF (Max size: 10MB)
             </div>
         </div>
-        <!-- Human verification checkbox -->
-        <div class="form-group" style="margin-top:14px;">
-            <input type="checkbox" id="human_check" required>
-            <label for="human_check" style="display:inline; font-size:0.9rem;">I am a human (anti-spam check)</label>
-        </div>
+
         <button type="submit" class="btn">Submit Appointment Request</button>
     </form>
 </section>
@@ -962,8 +952,6 @@ renderDates();
     color: #388e3c;
     font-weight: 500;
 }
-.hp-wrapper{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;}
-.visually-hidden{position:absolute;left:-9999px;}
 @media (max-width: 600px) {
     .payment-info-box { padding: 14px 6px; }
     .qr-img { width: 90px; height: 90px; }
