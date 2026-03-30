@@ -338,8 +338,54 @@
         </div>
     </section>
 
+    <section id="pricing" class="pricing-model">
+        <h2>Nutrition Consultation Packages</h2>
+        <p class="pricing-tagline">Personslized. Evidence-based. Sustainable.</p>
+        <div class="divider"></div>
+
+        <div class="pricing-dark-panel">
+            <table class="pricing-package-table">
+                <thead>
+                    <tr>
+                        <th>Package</th>
+                        <th>Price (₹)</th>
+                        <th>What you get</th>
+                        <th>Register</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="plan-name">1 Week Starter</span></td>
+                        <td><span class="plan-price">1,999</span></td>
+                        <td>Quick personalized diet guide + 1 follow-up</td>
+                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Week Starter - ₹1,999">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="plan-name">1 Month Plan <span class="plan-badge">⭐</span></span></td>
+                        <td><span class="plan-price">4,499</span></td>
+                        <td>Full customized diet + weekly check-ins + support</td>
+                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Month Plan - ₹4,499">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="plan-name">3 Months Plan <span class="plan-badge">🔥</span></span></td>
+                        <td><span class="plan-price">12,999</span></td>
+                        <td>Transformation program + habit-building + regular tracking</td>
+                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="3 Months Plan - ₹12,999">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="plan-name">6 Months Plan <span class="plan-badge">💎</span></span></td>
+                        <td><span class="plan-price">24,999</span></td>
+                        <td>Lifestyle correction + long-term support + deep tracking</td>
+                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="6 Months Plan - ₹24,999">Enroll Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section id="appointment" class="appointment">
     <h2>Book an Appointment</h2>
+    <p class="appointment-tagline">Invest in your health at your pace 💚</p>
     <div class="divider"></div>
     <!-- Clean FormSubmit.co setup for dev: lnjoshihome@gmail.com -->
     <form id="appointment-form" action="https://formsubmit.co/lnjoshihome@gmail.com" method="POST" enctype="multipart/form-data">
@@ -348,9 +394,20 @@
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_subject" value="New Appointment Request - Nutritional Therapy">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="00_Service_Type" value="21-Days Personalized Meal Planning, Monitoring & Evaluation (₹599)">
+        <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - ₹1,999">
         <input type="hidden" name="00_Form_Source" value="Nutritional Therapy Website - shreyanutricare.live">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-group">
+            <label for="pricing-plan">Select Your Program*</label>
+            <select id="pricing-plan" name="00_Selected_Program_Plan" required>
+                <option value="">Choose a plan</option>
+                <option value="1 Week Starter - ₹1,999">1 Week Starter - ₹1,999</option>
+                <option value="1 Month Plan - ₹4,499">1 Month Plan - ₹4,499</option>
+                <option value="3 Months Plan - ₹12,999">3 Months Plan - ₹12,999</option>
+                <option value="6 Months Plan - ₹24,999">6 Months Plan - ₹24,999</option>
+            </select>
+        </div>
         
         <div class="form-group">
             <label for="name">Full Name*</label>
@@ -411,12 +468,12 @@
 
         <div class="payment-info-box">
             <div class="payment-highlight">
-                To proceed with the <b>21-Days Personalized Meal Planning, Monitoring & Evaluation</b>, please make the payment of:
+                To proceed with the <b id="selected-plan-text">1 Week Starter</b>, please make the payment of:
             </div>
             <div class="payment-details">
                 <div class="amount-section">
                     <span class="amount-label">Amount:</span>
-                    <span class="amount">₹2200</span>
+                    <span class="amount" id="selected-plan-amount">₹1,999</span>
                 </div>
                 <div class="payment-options">
                     <!-- QR Code download button -->

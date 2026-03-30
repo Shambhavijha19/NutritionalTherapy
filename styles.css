@@ -908,6 +908,125 @@ nav {
     transform: scale(1.2);
 }
 
+/* Pricing Section */
+.pricing-model {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(92, 184, 92, 0.08), rgba(255, 204, 41, 0.08));
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-model:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/pattern-dots.png');
+    opacity: 0.04;
+    z-index: 0;
+}
+
+.pricing-model h2,
+.pricing-model .divider,
+.pricing-tagline,
+.pricing-dark-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-model h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.pricing-tagline {
+    color: var(--secondary-color);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.pricing-dark-panel {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid rgba(62, 142, 65, 0.15);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    overflow-x: auto;
+}
+
+.pricing-package-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.pricing-package-table th,
+.pricing-package-table td {
+    padding: 20px 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.pricing-package-table th {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(62, 142, 65, 0.22);
+    background: rgba(92, 184, 92, 0.08);
+}
+
+.pricing-package-table tbody tr:nth-child(even) {
+    background: rgba(92, 184, 92, 0.03);
+}
+
+.pricing-package-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.plan-name {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--secondary-color);
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--secondary-color);
+}
+
+.plan-badge {
+    margin-left: 4px;
+}
+
+.pricing-package-table td:nth-child(3) {
+    line-height: 1.5;
+    max-width: 360px;
+}
+
+.pricing-enroll-btn {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.appointment-tagline {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
 /* Appointment Section */
 .appointment {
     padding: 80px 20px;
@@ -1969,7 +2088,7 @@ footer:after {
         margin-bottom: 25px;
     }
     
-    .about, .services, .appointment, .faq, .contact {
+    .about, .services, .pricing-model, .appointment, .faq, .contact {
         padding: 50px 10px;
     }
     
@@ -2130,6 +2249,31 @@ footer:after {
 @media (max-width: 768px) {
     .payment-info-box {
         padding: 20px;
+    }
+
+    .pricing-model {
+        padding: 60px 10px;
+    }
+
+    .pricing-tagline,
+    .appointment-tagline {
+        font-size: 0.98rem;
+        padding: 0 10px;
+    }
+
+    .pricing-dark-panel {
+        border-radius: 12px;
+    }
+
+    .pricing-package-table th,
+    .pricing-package-table td {
+        font-size: 0.9rem;
+        padding: 14px 12px;
+    }
+
+    .plan-name,
+    .plan-price {
+        font-size: 1.2rem;
     }
 
     .amount-section {

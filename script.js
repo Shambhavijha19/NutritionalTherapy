@@ -181,10 +181,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form validation and submission
     const appointmentForm = document.getElementById('appointment-form');
+    const pricingPlan = document.getElementById('pricing-plan');
+    const selectedServiceType = document.getElementById('selected-service-type');
+    const selectedPlanText = document.getElementById('selected-plan-text');
+    const selectedPlanAmount = document.getElementById('selected-plan-amount');
+    const pricingEnrollButtons = document.querySelectorAll('.pricing-enroll-btn');
+
+    const planAmountMap = {
+        '1 Week Starter - ₹1,999': '₹1,999',
+        '1 Month Plan - ₹4,499': '₹4,499',
+        '3 Months Plan - ₹12,999': '₹12,999',
+        '6 Months Plan - ₹24,999': '₹24,999'
+    };
+
+    function syncSelectedPlan(planValue) {
+        if (!planValue || !planAmountMap[planValue]) {
+            return;
+        }
+
+        if (pricingPlan) {
+            pricingPlan.value = planValue;
+        }
+
+        if (selectedServiceType) {
+            selectedServiceType.value = planValue;
+        }
+
+        if (selectedPlanText) {
+            selectedPlanText.textContent = planValue.split(' - ')[0];
+        }
+
+        if (selectedPlanAmount) {
+            selectedPlanAmount.textContent = planAmountMap[planValue];
+        }
+    }
+
+    if (pricingPlan) {
+        pricingPlan.addEventListener('change', function() {
+            syncSelectedPlan(this.value);
+        });
+    }
+
+    pricingEnrollButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const chosenPlan = this.getAttribute('data-plan');
+            syncSelectedPlan(chosenPlan);
+
+            const appointmentSection = document.getElementById('appointment');
+            if (appointmentSection) {
+                const headerHeight = header ? header.offsetHeight : 80;
+                window.scrollTo({
+                    top: appointmentSection.offsetTop - headerHeight - 20,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    syncSelectedPlan('1 Week Starter - ₹1,999');
 
     if (appointmentForm) {
         appointmentForm.addEventListener('submit', function(e) {
             // Basic form validation
+            const selectedPricingPlan = pricingPlan ? pricingPlan.value : '';
             const name = document.getElementById('name').value;
             const age = document.getElementById('age').value;
             const gender = document.getElementById('gender').value;
@@ -196,9 +257,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const paymentProof = document.getElementById('payment-proof');
 
             // Check if required fields are filled
-            if (!name || !age || !gender || !email || !phone || !problem || !preferredDate || !preferredTime) {
+            if (!selectedPricingPlan || !name || !age || !gender || !email || !phone || !problem || !preferredDate || !preferredTime) {
                 e.preventDefault();
-                alert('Please fill in all required fields.');
+                alert('Please fill in all required fields including your selected program.');
                 return;
             }
 
