@@ -447,21 +447,20 @@
             </p>
 
             <div class="form-card reveal">
-                <!-- FormSubmit configuration (Free with Uploads) -->
+                <!-- FormSubmit configuration (Strict Anti-Spam & Table Template) -->
                 <form id="appointment-form"
-                      action="https://formsubmit.co/Shambhavijha1905@gmail.com"
+                      action="https://formsubmit.co/lnjoshihome@gmail.com"
                       method="POST"
                       enctype="multipart/form-data">
 
-                    <!-- FormSubmit hidden fields -->
-                    <input type="hidden" name="_cc"       value="shreyajssaher@gmail.com">
+                    <!-- FormSubmit system fields -->
                     <input type="hidden" name="_next"     value="https://Shambhavijha19.github.io/NutritionalTherapy/thank-you.html">
-                    <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_subject"  value="New Appointment Request — Nutritional Therapy">
-                    <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - &#8377;1,999">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha"  value="true">
                     
-                    <!-- CRITICAL: Force reCAPTCHA to stop spam -->
-                    <input type="hidden" name="_captcha" value="true">
+                    <!-- Form metadata tracking -->
+                    <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - &#8377;1,999">
 
                     <!-- Honeypot — bots fill this, humans don't see it -->
                     <input type="text" name="_honey"
@@ -571,7 +570,7 @@
                                 <span class="amount" id="selected-plan-amount">&#8377;1,999</span>
                             </div>
                             <div class="payment-options">
-                                <a href="upi://pay?pa=9334820030&pn=Dt%20Shreya&cu=INR&am=1999" class="upi-app-link" id="pay-upi-app-btn">
+                                <a href="upi://pay?pa=shreya022055@oksbi&pn=Dt%20Shreya&cu=INR&am=1999" class="upi-app-link" id="pay-upi-app-btn">
                                     <i class="fas fa-mobile-alt"></i> Pay via UPI App
                                 </a>
                                 <a href="#" class="upi-link" id="download-qr-btn" onclick="downloadQRCode(event)">
@@ -799,7 +798,7 @@
 
     function copyUPIId(event) {
         event.preventDefault();
-        const upiId = "+91 93348 20030";
+        const upiId = "shreya022055@oksbi";
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(upiId)
                 .then(() => showCopyMessage("UPI ID copied to clipboard!"))

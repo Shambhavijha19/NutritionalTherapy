@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const payBtn = document.getElementById('pay-upi-app-btn');
         if (payBtn) {
             const rawAmount = info.amount.replace(/[^0-9]/g, '');
-            payBtn.href = `upi://pay?pa=9334820030&pn=Dt%20Shreya&cu=INR&am=${rawAmount}`;
+            payBtn.href = `upi://pay?pa=shreya022055@oksbi&pn=Dt%20Shreya&cu=INR&am=${rawAmount}`;
         }
     }
 
