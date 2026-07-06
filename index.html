@@ -3,557 +3,655 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#418943">
-    <meta name="description" content="Personalized nutrition plans by Dt. Shreya - Expert nutritional therapy and diet consultation">
-    <meta name="keywords" content="nutritionist, diet plan, nutrition therapy, Dt. Shreya, health consultant">
-    <link rel="icon" type="image/png" href="images/leaf-logo.png">
-    <title>Nutritional Therapy by Dt. Shreya</title>
+    <meta name="theme-color" content="#1e4d35">
+    <meta name="description" content="Personalized nutrition plans by Dt. Shreya — Expert nutritional therapy, therapeutic diets, and diet consultation. Book your consultation today.">
+    <meta name="keywords" content="nutritionist, diet plan, nutrition therapy, Dt. Shreya, health consultant, clinical nutrition, weight management">
+    <meta property="og:title" content="Nutritional Therapy by Dt. Shreya">
+    <meta property="og:description" content="Personalized nutrition plans tailored to your unique health needs. Book a consultation today.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+    <title>Nutritional Therapy by Dt. Shreya — Premium Health Consultation</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <header>
+
+    <!-- ════════════════════════════════════════════
+         HEADER / NAVIGATION
+    ════════════════════════════════════════════ -->
+    <header id="main-header">
         <nav>
             <div class="logo">
-                <img src="images/leaf-logo.png" alt="Leaf Logo">
-                <h1>Nutritional Therapy</h1>
-                <p class="subtitle">By Dt. Shreya</p>
+                <img src="images/logo.webp" alt="Nutritional Therapy Logo">
+                <div class="logo-text">
+                    <h1>Nutritional Therapy</h1>
+                    <p class="subtitle">By Dt. Shreya</p>
+                </div>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links">
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#appointment">Book Appointment</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#appointment" class="nav-cta">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- ════════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Your Path to Better Health Through Nutrition</h1>
-            <p>Personalized nutrition plans tailored to your unique health needs</p>
-            <a href="#appointment" class="btn">Book a Consultation</a>
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+
+        <div class="hero-center">
+            <div class="hero-badge">
+                <i class="fas fa-award"></i>
+                Allied Healthcare Professional
+            </div>
+            <h1>
+                Your Path to Better<br>
+                Health Through <em>Nutrition</em>
+            </h1>
+            <p class="hero-desc">
+                Personalized, evidence-based nutrition plans tailored to your unique body, goals, and lifestyle &mdash; guided by Dt. Shreya, a certified expert with clinical experience at top hospitals.
+            </p>
+            <div class="hero-actions">
+                <a href="#appointment" class="btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Book a Consultation</span>
+                </a>
+                <a href="#about" class="btn btn-outline">
+                    <i class="fas fa-user-md"></i>
+                    <span>Meet Dt. Shreya</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Specializations</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">M.Sc</div>
+                    <div class="stat-label">Nutrition &amp; Dietetics</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">&#8377;1,999</div>
+                    <div class="stat-label">Plans Starting From</div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         ABOUT SECTION
+    ════════════════════════════════════════════ -->
     <section id="about" class="about">
-    <h2>About Dt. Shreya</h2>
-    <div class="divider"></div>
-    <div class="about-content">
-        <!-- Inverted Layout: Text first, then Image -->
-        <div class="about-text" style="text-align: justify;">
-            <h3>Experienced Nutritional Therapist</h3>
-            <p>
-                Dt. Shreya is a dedicated and accomplished Nutritionist with a Master's degree in Nutrition and Dietetics, proudly recognized as an Allied Healthcare Professional. She currently serves as a Consultant Nutritionist at "Dr. Reddy" and brings valuable clinical experience from her previous role at Felix Hospital Noida, where she provided comprehensive nutritional care to diverse patient populations.
-            </p>
-            <p>
-                With a solid academic background and current expertise in nutritional science, she offers personalized diet plans, lifestyle guidance, and practical wellness strategies—whether you're managing weight, addressing health conditions, or simply striving to feel your best.
-            </p>
-            <p>
-                She is currently accepting new clients and would love to support you in building sustainable, healthy habits that truly last.
-            </p>
-            <h4>Areas of Expertise:</h4>
-            <ul>
-                <li><i class="fas fa-leaf"></i> Clinical Nutrition</li>
-                <li><i class="fas fa-leaf"></i> Sports Nutrition</li>
-                <li><i class="fas fa-leaf"></i> Weight Management</li>
-                <li><i class="fas fa-leaf"></i> Preventive and Functional Nutrition</li>
-                <li><i class="fas fa-leaf"></i> Therapeutic Diet Planning</li>
-                <li><i class="fas fa-leaf"></i> Gut and Digestive Wellness</li>
-                <li><i class="fas fa-leaf"></i> Women's Health & Hormonal Balance</li>
-                <li><i class="fas fa-leaf"></i> Nutrition for Mental Well-being</li>
-            </ul>
-            <p class="philosophy">"Let food be thy medicine, and medicine be thy food." – Hippocrates</p>
-        </div>
+        <div class="about-grid">
+            <!-- Image Column -->
+            <div class="about-img-wrap reveal">
+                <div class="about-img-inner">
+                    <img src="images/profile.webp" alt="Dt. Shreya — Experienced Nutritional Therapist">
+                </div>
+                <div class="about-img-accent"></div>
+                <div class="about-credential">
+                    <span class="cred-num">M.Sc</span>
+                    <div class="cred-label">Nutrition &<br>Dietetics</div>
+                </div>
+            </div>
 
-        <!-- Inverted Layout: Image second -->
-        <div class="about-image">
-            <img src="images/shreya didi profile.jpg" alt="Dt. Shreya">
-        </div>
-    </div>
-</section>
+            <!-- Text Column -->
+            <div class="about-content reveal reveal-delay-1">
+                <p class="section-label"><i class="fas fa-leaf"></i> About the Expert</p>
+                <h2 class="section-title">Experienced Nutritional Therapist</h2>
 
+                <p>
+                    Dt. Shreya is a dedicated and accomplished Nutritionist with a Master's degree in Nutrition and Dietetics, proudly recognized as an Allied Healthcare Professional. She currently serves as a Consultant Nutritionist at <strong>"Dr. Reddy"</strong> and brings valuable clinical experience from her previous role at Felix Hospital Noida.
+                </p>
+                <p>
+                    With a solid academic background and expertise in nutritional science, she offers personalized diet plans, lifestyle guidance, and practical wellness strategies — whether you're managing weight, addressing health conditions, or simply striving to feel your best.
+                </p>
+                <p>
+                    She is currently accepting new clients and would love to support you in building sustainable, healthy habits that truly last.
+                </p>
+
+                <h4 style="font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green-600);margin:24px 0 12px;">Areas of Expertise</h4>
+                <div class="expertise-grid">
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Clinical Nutrition</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Sports Nutrition</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Weight Management</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Preventive Nutrition</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Therapeutic Diets</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Gut Health</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Women's Health</div>
+                    <div class="expertise-item"><i class="fas fa-check-circle"></i> Mental Well-being</div>
+                </div>
+
+                <blockquote class="philosophy-quote">
+                    "Let food be thy medicine, and medicine be thy food."
+                    <cite>— Hippocrates</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SERVICES SECTION
+    ════════════════════════════════════════════ -->
     <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="divider"></div>
-
-        <div class="services-tabs-container">
-            <div class="services-tabs">
-                <button class="service-tab active" data-service="assessment">
-                    <i class="fas fa-clipboard-check"></i>
-                    <span>Nutritional Assessment</span>
-                </button>
-                <button class="service-tab" data-service="meal-planning">
-                    <i class="fas fa-utensils"></i>
-                    <span>Meal Planning</span>
-                </button>
-                <button class="service-tab" data-service="therapeutic">
-                    <i class="fas fa-heartbeat"></i>
-                    <span>Therapeutic Diets</span>
-                </button>
-                <button class="service-tab" data-service="counseling">
-                    <i class="fas fa-comments"></i>
-                    <span>Nutritional Counseling</span>
-                </button>
-            </div>
-
-            <div class="service-content-container">
-                <div class="service-content active" id="assessment">
-                    <div class="service-header">
-                        <h3>Nutritional Assessment</h3>
-                        <div class="service-icon-large">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                    </div>
-                    <p class="service-description">Comprehensive evaluation of your current health status, dietary habits, and nutritional needs.</p>
-                    <div class="service-details">
-                        <h4>Our nutritional assessment includes:</h4>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Detailed dietary history</li>
-                            <li><i class="fas fa-check-circle"></i> Analysis of current eating patterns</li>
-                            <li><i class="fas fa-check-circle"></i> Evaluation of nutritional deficiencies</li>
-                            <li><i class="fas fa-check-circle"></i> Body composition analysis</li>
-                            <li><i class="fas fa-check-circle"></i> Health goals discussion</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-content" id="meal-planning">
-                    <div class="service-header">
-                        <h3>Personalized Meal Planning</h3>
-                        <div class="service-icon-large">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                    </div>
-                    <p class="service-description">Custom meal plans designed specifically for your nutritional needs, preferences, and lifestyle.</p>
-                    <div class="service-details">
-                        <h4>Our meal planning services include:</h4>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Daily or weekly meal schedules</li>
-                            <li><i class="fas fa-check-circle"></i> Portion size recommendations</li>
-                            <li><i class="fas fa-check-circle"></i> Grocery shopping lists</li>
-                            <li><i class="fas fa-check-circle"></i> Recipe suggestions and alternatives</li>
-                            <li><i class="fas fa-check-circle"></i> Consideration of food preferences and allergies</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-content" id="therapeutic">
-                    <div class="service-header">
-                        <h3>Therapeutic Diets</h3>
-                        <div class="service-icon-large">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                    </div>
-                    <p class="service-description">Specialized nutrition plans for managing specific health conditions and promoting healing.</p>
-                    <div class="service-details">
-                        <h4>We offer therapeutic diets for conditions including:</h4>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Diabetes management</li>
-                            <li><i class="fas fa-check-circle"></i> Heart disease and hypertension</li>
-                            <li><i class="fas fa-check-circle"></i> Digestive disorders (IBS, GERD, etc.)</li>
-                            <li><i class="fas fa-check-circle"></i> Food allergies and intolerances</li>
-                            <li><i class="fas fa-check-circle"></i> Weight management</li>
-                            <li><i class="fas fa-check-circle"></i> Autoimmune conditions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-content" id="counseling">
-                    <div class="service-header">
-                        <h3>Nutritional Counseling</h3>
-                        <div class="service-icon-large">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                    </div>
-                    <p class="service-description">One-on-one guidance to help you understand nutrition principles and make sustainable changes.</p>
-                    <div class="service-details">
-                        <h4>Our counseling approach includes:</h4>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Education on nutrition fundamentals</li>
-                            <li><i class="fas fa-check-circle"></i> Behavior change strategies</li>
-                            <li><i class="fas fa-check-circle"></i> Emotional aspects of eating</li>
-                            <li><i class="fas fa-check-circle"></i> Practical tips for healthy eating</li>
-                            <li><i class="fas fa-check-circle"></i> Support for overcoming challenges</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="section-head reveal">
+            <p class="section-label"><i class="fas fa-star"></i> What We Offer</p>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive nutritional support at every stage of your health journey.</p>
+            <div class="divider"></div>
         </div>
 
-        <div class="who-i-serve-container">
-            <div class="dropdown-toggle">
-                <h3>Who I Serve</h3>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="who-i-serve collapsed">
-                <div class="client-types-grid">
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-heartbeat"></i>
+        <div class="services-inner">
+            <!-- Tabbed Services -->
+            <div class="services-tabs-container reveal">
+                <div class="services-tabs">
+                    <button class="service-tab active" data-service="assessment" id="tab-assessment">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Nutritional Assessment</span>
+                    </button>
+                    <button class="service-tab" data-service="meal-planning" id="tab-meal-planning">
+                        <i class="fas fa-utensils"></i>
+                        <span>Meal Planning</span>
+                    </button>
+                    <button class="service-tab" data-service="therapeutic" id="tab-therapeutic">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Therapeutic Diets</span>
+                    </button>
+                    <button class="service-tab" data-service="counseling" id="tab-counseling">
+                        <i class="fas fa-comments"></i>
+                        <span>Nutritional Counseling</span>
+                    </button>
+                </div>
+
+                <div class="service-content-container">
+                    <div class="service-content active" id="assessment">
+                        <div class="service-header">
+                            <h3>Nutritional Assessment</h3>
+                            <div class="service-icon-large"><i class="fas fa-clipboard-check"></i></div>
                         </div>
-                        <h4>Individuals with Medical Conditions</h4>
-                        <p>For Clinical Nutrition Therapy</p>
+                        <p class="service-description">Comprehensive evaluation of your current health status, dietary habits, and nutritional needs to create the perfect starting point for your wellness journey.</p>
+                        <div class="service-details">
+                            <h4>Our nutritional assessment includes:</h4>
+                            <ul class="service-list">
+                                <li><i class="fas fa-check-circle"></i> Detailed dietary history</li>
+                                <li><i class="fas fa-check-circle"></i> Analysis of current eating patterns</li>
+                                <li><i class="fas fa-check-circle"></i> Evaluation of nutritional deficiencies</li>
+                                <li><i class="fas fa-check-circle"></i> Body composition analysis</li>
+                                <li><i class="fas fa-check-circle"></i> Health goals discussion</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-child"></i>
+                    <div class="service-content" id="meal-planning">
+                        <div class="service-header">
+                            <h3>Personalized Meal Planning</h3>
+                            <div class="service-icon-large"><i class="fas fa-utensils"></i></div>
                         </div>
-                        <h4>Children & Teens</h4>
-                        <p>For Pediatric Nutrition</p>
+                        <p class="service-description">Custom meal plans designed specifically for your nutritional needs, food preferences, and lifestyle to make healthy eating simple and enjoyable.</p>
+                        <div class="service-details">
+                            <h4>Our meal planning services include:</h4>
+                            <ul class="service-list">
+                                <li><i class="fas fa-check-circle"></i> Daily or weekly meal schedules</li>
+                                <li><i class="fas fa-check-circle"></i> Portion size recommendations</li>
+                                <li><i class="fas fa-check-circle"></i> Grocery shopping lists</li>
+                                <li><i class="fas fa-check-circle"></i> Recipe suggestions and alternatives</li>
+                                <li><i class="fas fa-check-circle"></i> Consideration of food allergies</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-female"></i>
+                    <div class="service-content" id="therapeutic">
+                        <div class="service-header">
+                            <h3>Therapeutic Diets</h3>
+                            <div class="service-icon-large"><i class="fas fa-heartbeat"></i></div>
                         </div>
-                        <h4>Women at Every Life Stage</h4>
-                        <p>Covers Women's Health & Prenatal Nutrition</p>
+                        <p class="service-description">Specialized nutrition plans for managing specific health conditions and promoting healing through evidence-based dietary interventions.</p>
+                        <div class="service-details">
+                            <h4>We offer therapeutic diets for:</h4>
+                            <ul class="service-list">
+                                <li><i class="fas fa-check-circle"></i> Diabetes management</li>
+                                <li><i class="fas fa-check-circle"></i> Heart disease & hypertension</li>
+                                <li><i class="fas fa-check-circle"></i> Digestive disorders (IBS, GERD)</li>
+                                <li><i class="fas fa-check-circle"></i> Food allergies & intolerances</li>
+                                <li><i class="fas fa-check-circle"></i> Weight management</li>
+                                <li><i class="fas fa-check-circle"></i> Autoimmune conditions</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-running"></i>
+                    <div class="service-content" id="counseling">
+                        <div class="service-header">
+                            <h3>Nutritional Counseling</h3>
+                            <div class="service-icon-large"><i class="fas fa-comments"></i></div>
                         </div>
-                        <h4>Athletes & Fitness Enthusiasts</h4>
-                        <p>For Sports Nutrition</p>
-                    </div>
-
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-user-friends"></i>
+                        <p class="service-description">One-on-one guidance to help you understand nutrition principles, build sustainable habits, and make lasting changes to your relationship with food.</p>
+                        <div class="service-details">
+                            <h4>Our counseling approach includes:</h4>
+                            <ul class="service-list">
+                                <li><i class="fas fa-check-circle"></i> Education on nutrition fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> Behavior change strategies</li>
+                                <li><i class="fas fa-check-circle"></i> Emotional aspects of eating</li>
+                                <li><i class="fas fa-check-circle"></i> Practical tips for healthy eating</li>
+                                <li><i class="fas fa-check-circle"></i> Support for overcoming challenges</li>
+                            </ul>
                         </div>
-                        <h4>Older Adults & Seniors</h4>
-                        <p>For Geriatric Nutrition</p>
-                    </div>
-
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-pills"></i>
-                        </div>
-                        <h4>Clients with Digestive Concerns</h4>
-                        <p>For Gut Health Programs</p>
-                    </div>
-
-                    <div class="client-type">
-                        <div class="client-icon">
-                            <i class="fas fa-apple-alt"></i>
-                        </div>
-                        <h4>Health-Conscious Individuals</h4>
-                        <p>For Lifestyle & Preventive Health</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="consultation-features">
-            <div class="consultation-header">
-                <h3>All Consultations Include</h3>
-                <p class="consultation-subtitle">Comprehensive support for your nutritional journey</p>
-            </div>
-
-            <div class="features-slider">
-                <div class="features-track">
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-file-medical"></i>
+            <!-- Who I Serve -->
+            <div class="who-i-serve-container reveal">
+                <div class="dropdown-toggle" id="who-serve-toggle">
+                    <h3>Who I Serve</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="who-i-serve collapsed" id="who-serve-content">
+                    <div class="client-types-grid">
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-heartbeat"></i></div>
+                            <h4>Individuals with Medical Conditions</h4>
+                            <p>Clinical Nutrition Therapy</p>
                         </div>
-                        <h4>Detailed Reports</h4>
-                        <p>Comprehensive documentation of your nutritional plan and progress</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-child"></i></div>
+                            <h4>Children & Teens</h4>
+                            <p>Pediatric Nutrition</p>
                         </div>
-                        <h4>Progress Tracking</h4>
-                        <p>Regular monitoring of your health metrics and dietary adherence</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-calendar-check"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-female"></i></div>
+                            <h4>Women at Every Life Stage</h4>
+                            <p>Women's Health & Prenatal Nutrition</p>
                         </div>
-                        <h4>Follow-up Sessions</h4>
-                        <p>Scheduled check-ins to adjust your plan and address concerns</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-running"></i></div>
+                            <h4>Athletes & Fitness Enthusiasts</h4>
+                            <p>Sports Nutrition</p>
                         </div>
-                        <h4>Digital Support</h4>
-                        <p>Access to resources and communication between appointments</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-book-reader"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-user-friends"></i></div>
+                            <h4>Older Adults & Seniors</h4>
+                            <p>Geriatric Nutrition</p>
                         </div>
-                        <h4>Educational Materials</h4>
-                        <p>Personalized nutrition guides and resources to support your journey</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-utensils"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-pills"></i></div>
+                            <h4>Clients with Digestive Concerns</h4>
+                            <p>Gut Health Programs</p>
                         </div>
-                        <h4>Recipe Collection</h4>
-                        <p>Curated healthy recipes tailored to your dietary needs and preferences</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-capsules"></i>
+                        <div class="client-type">
+                            <div class="client-icon"><i class="fas fa-apple-alt"></i></div>
+                            <h4>Health-Conscious Individuals</h4>
+                            <p>Lifestyle & Preventive Health</p>
                         </div>
-                        <h4>Custom Supplement Guidance</h4>
-                        <p>Personalized recommendations for vitamins and supplements based on your needs</p>
-                    </div>
-
-                    <div class="feature-slide">
-                        <div class="feature-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h4>Corporate Wellness Program</h4>
-                        <p>Specialized nutrition plans and workshops for workplace wellness initiatives</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="slider-controls">
-                    <button class="slider-arrow prev" aria-label="Previous slide">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slider-dots"></div>
-                    <button class="slider-arrow next" aria-label="Next slide">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+            <!-- All Consultations Include -->
+            <div class="consultation-features reveal">
+                <div class="consultation-header">
+                    <h3>All Consultations Include</h3>
+                    <p class="consultation-subtitle">Comprehensive support for your nutritional journey</p>
+                </div>
+
+                <div class="features-slider">
+                    <div class="features-track" id="features-track">
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-file-medical"></i></div>
+                            <h4>Detailed Reports</h4>
+                            <p>Comprehensive documentation of your nutritional plan and progress</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>Progress Tracking</h4>
+                            <p>Regular monitoring of your health metrics and dietary adherence</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+                            <h4>Follow-up Sessions</h4>
+                            <p>Scheduled check-ins to adjust your plan and address concerns</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h4>Digital Support</h4>
+                            <p>Access to resources and communication between appointments</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-book-reader"></i></div>
+                            <h4>Educational Materials</h4>
+                            <p>Personalized nutrition guides and resources to support your journey</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                            <h4>Recipe Collection</h4>
+                            <p>Curated healthy recipes tailored to your dietary needs</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-capsules"></i></div>
+                            <h4>Supplement Guidance</h4>
+                            <p>Personalized recommendations for vitamins and supplements</p>
+                        </div>
+                        <div class="feature-slide">
+                            <div class="feature-icon"><i class="fas fa-building"></i></div>
+                            <h4>Corporate Wellness</h4>
+                            <p>Specialized nutrition plans and workshops for workplace wellness</p>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-arrow prev" id="slider-prev" aria-label="Previous slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="slider-dots" id="slider-dots"></div>
+                        <button class="slider-arrow next" id="slider-next" aria-label="Next slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         PRICING SECTION
+    ════════════════════════════════════════════ -->
     <section id="pricing" class="pricing-model">
-        <h2>Nutrition Consultation Packages</h2>
-        <p class="pricing-tagline">Personslized. Evidence-based. Sustainable.</p>
-        <div class="divider"></div>
+        <div class="section-head reveal">
+            <p class="section-label"><i class="fas fa-gem"></i> Investment in Health</p>
+            <h2 class="section-title">Nutrition Consultation Packages</h2>
+            <p class="pricing-tagline">Personalised. Evidence-based. Sustainable.</p>
+            <div class="divider"></div>
+        </div>
 
-        <div class="pricing-dark-panel">
-            <table class="pricing-package-table">
-                <thead>
-                    <tr>
-                        <th>Package</th>
-                        <th>Price (₹)</th>
-                        <th>What you get</th>
-                        <th>Register</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="plan-name">1 Week Starter</span></td>
-                        <td><span class="plan-price">1,999</span></td>
-                        <td>Quick personalized diet guide + 1 follow-up</td>
-                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Week Starter - ₹1,999">Enroll Now</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="plan-name">1 Month Plan <span class="plan-badge">⭐</span></span></td>
-                        <td><span class="plan-price">4,499</span></td>
-                        <td>Full customized diet + weekly check-ins + support</td>
-                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Month Plan - ₹4,499">Enroll Now</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="plan-name">3 Months Plan <span class="plan-badge">🔥</span></span></td>
-                        <td><span class="plan-price">12,999</span></td>
-                        <td>Transformation program + habit-building + regular tracking</td>
-                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="3 Months Plan - ₹12,999">Enroll Now</a></td>
-                    </tr>
-                    <tr>
-                        <td><span class="plan-name">6 Months Plan <span class="plan-badge">💎</span></span></td>
-                        <td><span class="plan-price">24,999</span></td>
-                        <td>Lifestyle correction + long-term support + deep tracking</td>
-                        <td><a href="#appointment" class="btn pricing-enroll-btn" data-plan="6 Months Plan - ₹24,999">Enroll Now</a></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="pricing-grid">
+            <!-- 1 Week -->
+            <div class="pricing-card reveal reveal-delay-1" id="plan-starter">
+                <div class="plan-emoji">🌱</div>
+                <div class="plan-name">1 Week Starter</div>
+                <div class="plan-price"><sup>&#8377;</sup>1,999</div>
+                <p class="plan-desc">Quick personalized diet guide + 1 follow-up session</p>
+                <a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Week Starter - &#8377;1,999">
+                    <span>Enroll Now</span>
+                </a>
+            </div>
+
+            <!-- 1 Month -->
+            <div class="pricing-card featured reveal reveal-delay-2" id="plan-month">
+                <div class="pricing-badge">Popular ⭐</div>
+                <div class="plan-emoji">🌿</div>
+                <div class="plan-name">1 Month Plan</div>
+                <div class="plan-price"><sup>&#8377;</sup>4,499</div>
+                <p class="plan-desc">Full customized diet + weekly check-ins + ongoing support</p>
+                <a href="#appointment" class="btn pricing-enroll-btn" data-plan="1 Month Plan - &#8377;4,499">
+                    <span>Enroll Now</span>
+                </a>
+            </div>
+
+            <!-- 3 Months -->
+            <div class="pricing-card reveal reveal-delay-2" id="plan-3months">
+                <div class="pricing-badge" style="background:var(--green-400);color:var(--white);">Best Value 🔥</div>
+                <div class="plan-emoji">🌳</div>
+                <div class="plan-name">3 Months Plan</div>
+                <div class="plan-price"><sup>&#8377;</sup>12,999</div>
+                <p class="plan-desc">Transformation program + habit-building + regular tracking</p>
+                <a href="#appointment" class="btn pricing-enroll-btn" data-plan="3 Months Plan - &#8377;12,999">
+                    <span>Enroll Now</span>
+                </a>
+            </div>
+
+            <!-- 6 Months -->
+            <div class="pricing-card reveal reveal-delay-3" id="plan-6months">
+                <div class="plan-emoji">💎</div>
+                <div class="plan-name">6 Months Plan</div>
+                <div class="plan-price"><sup>&#8377;</sup>24,999</div>
+                <p class="plan-desc">Lifestyle correction + long-term support + deep tracking</p>
+                <a href="#appointment" class="btn pricing-enroll-btn" data-plan="6 Months Plan - &#8377;24,999">
+                    <span>Enroll Now</span>
+                </a>
+            </div>
         </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         APPOINTMENT / FORM SECTION
+    ════════════════════════════════════════════ -->
     <section id="appointment" class="appointment">
-    <h2>Book an Appointment</h2>
-    <p class="appointment-tagline">Invest in your health at your pace 💚</p>
-    <div class="divider"></div>
-    <!-- Clean FormSubmit.co setup for dev: lnjoshihome@gmail.com -->
-    <form id="appointment-form" action="https://formsubmit.co/lnjoshihome@gmail.com" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_cc" value="shreyajssaher@gmail.com">
-        <input type="hidden" name="_next" value="https://shreyanutricare.live/thank-you.html">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_subject" value="New Appointment Request - Nutritional Therapy">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - ₹1,999">
-        <input type="hidden" name="00_Form_Source" value="Nutritional Therapy Website - shreyanutricare.live">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-        <div class="form-group">
-            <label for="pricing-plan">Select Your Program*</label>
-            <select id="pricing-plan" name="00_Selected_Program_Plan" required>
-                <option value="">Choose a plan</option>
-                <option value="1 Week Starter - ₹1,999">1 Week Starter - ₹1,999</option>
-                <option value="1 Month Plan - ₹4,499">1 Month Plan - ₹4,499</option>
-                <option value="3 Months Plan - ₹12,999">3 Months Plan - ₹12,999</option>
-                <option value="6 Months Plan - ₹24,999">6 Months Plan - ₹24,999</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">Full Name*</label>
-            <input type="text" id="name" name="01_Full_Name" required>
+        <div class="section-head reveal">
+            <p class="section-label"><i class="fas fa-calendar-check"></i> Get Started</p>
+            <h2 class="section-title">Book an Appointment</h2>
+            <div class="divider"></div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label for="age">Age*</label>
-                <input type="number" id="age" name="02_Age" required min="1" max="120">
-            </div>
+        <div class="appointment-inner">
+            <p class="appointment-tagline">
+                <i class="fas fa-heart" style="color:var(--green-500)"></i>
+                Invest in your health, one step at a time
+            </p>
 
-            <div class="form-group">
-                <label for="gender">Gender*</label>
-                <select id="gender" name="03_Gender" required>
-                    <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-        </div>
+            <div class="form-card reveal">
+                <!-- Web3Forms configuration -->
+                <form id="appointment-form"
+                      action="https://api.web3forms.com/submit"
+                      method="POST"
+                      enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label for="email">Email Address*</label>
-            <input type="email" id="email" name="04_Email_Address" required>
-        </div>
+                    <!-- Web3Forms hidden fields -->
+                    <input type="hidden" name="access_key" value="f60c5b23-f42a-4fa2-b23a-00752e16c5e0">
+                    <input type="hidden" name="redirect" value="https://Shambhavijha19.github.io/NutritionalTherapy/thank-you.html">
+                    <input type="hidden" name="subject" value="New Appointment Request — Nutritional Therapy">
+                    <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - &#8377;1,999">
+                    <input type="hidden" name="from_name" value="Nutritional Therapy Website">
 
-        <div class="form-group">
-            <label for="phone">Phone Number*</label>
-            <input type="tel" id="phone" name="05_Phone_Number" required>
-        </div>
+                    <!-- Honeypot — bots fill this, humans don't see it -->
+                    <input type="text" name="_honey"
+                           style="display:none !important; position:absolute; left:-9999px;"
+                           tabindex="-1" autocomplete="off" aria-hidden="true">
 
-        <div class="form-group">
-            <label for="problem">Problem Statement*</label>
-            <textarea id="problem" name="06_Health_Concern_Problem_Statement" rows="4" required></textarea>
-        </div>
+                    <!-- Timing trap: bots submit instantly, humans take seconds -->
+                    <input type="hidden" name="_form_loaded" id="_form_loaded" value="">
 
-        <div class="form-group">
-            <label for="preferred-date">Preferred Date*</label>
-            <input type="date" id="preferred-date" name="07_Preferred_Appointment_Date" required>
-        </div>
-
-        <div class="form-group">
-            <label for="preferred-time">Preferred Time*</label>
-            <select id="preferred-time" name="08_Preferred_Time_Slot" required>
-                <option value="">Select Time</option>
-                <option value="Morning (7AM - 8AM)">Morning (7AM - 8AM)</option>
-                <option value="Night (8PM - 9PM)">Night (8PM - 9PM)</option>
-                <option value="Night (9PM - 10PM)">Night (9PM - 10PM)</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="additional-notes">Additional Notes</label>
-            <textarea id="additional-notes" name="09_Additional_Notes_Comments" rows="3"></textarea>
-        </div>
-
-        <div class="payment-info-box">
-            <div class="payment-highlight">
-                To proceed with the <b id="selected-plan-text">1 Week Starter</b>, please make the payment of:
-            </div>
-            <div class="payment-details">
-                <div class="amount-section">
-                    <span class="amount-label">Amount:</span>
-                    <span class="amount" id="selected-plan-amount">₹1,999</span>
-                </div>
-                <div class="payment-options">
-                    <!-- QR Code download button -->
-                    <a href="#" 
-                       class="upi-link" 
-                       onclick="downloadQRCode(event)">
-                        <i class="fas fa-qrcode"></i>
-                        Download QR
-                    </a>
-                    <!-- Alternate payment button for mobile -->
-                    <a href="#" 
-                       class="upi-id-copy" 
-                       onclick="copyUPIId(event)">
-                        <i class="fas fa-copy"></i>
-                        Copy UPI ID
-                    </a>
-                    <!-- View QR button -->
-                    <a href="#" 
-                       class="view-qr-btn" 
-                       onclick="toggleQRView(event)">
-                        <i class="fas fa-eye"></i>
-                        View QR
-                    </a>
-                </div>
-                
-                <!-- QR Code display area (initially hidden) -->
-                <div id="qr-display" class="qr-display-container" style="display: none;">
-                    <div class="qr-image-wrapper">
-                        <img src="images/qr shreya.jpeg" alt="Payment QR Code" class="qr-display-image">
-                        <p class="qr-instructions">Scan this QR code with any UPI app to make payment</p>
+                    <!-- Select Plan -->
+                    <div class="form-group">
+                        <label for="pricing-plan">Select Your Program *</label>
+                        <select id="pricing-plan" name="00_Selected_Program_Plan" required>
+                            <option value="">Choose a plan</option>
+                            <option value="1 Week Starter - &#8377;1,999">1 Week Starter &mdash; &#8377;1,999</option>
+                            <option value="1 Month Plan - &#8377;4,499">1 Month Plan &mdash; &#8377;4,499</option>
+                            <option value="3 Months Plan - &#8377;12,999">3 Months Plan &mdash; &#8377;12,999</option>
+                            <option value="6 Months Plan - &#8377;24,999">6 Months Plan &mdash; &#8377;24,999</option>
+                        </select>
                     </div>
-                </div>
-            </div>
-            <div class="payment-note">
-                <i class="fas fa-info-circle"></i>
-                <div class="note-text">
-                    <p>Kindly share the payment confirmation screenshot once done.</p>
-                    <p>Your personalized plan will begin immediately after confirmation.</p>
-                </div>
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="01_Full_Name"
+                               placeholder="Enter your full name"
+                               required autocomplete="name">
+                    </div>
+
+                    <!-- Age + Gender Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" name="02_Age"
+                                   placeholder="Your age"
+                                   required min="1" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="03_Gender" required>
+                                <option value="">Select gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="04_Email_Address"
+                               placeholder="your@email.com"
+                               required autocomplete="email">
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="05_Phone_Number"
+                               placeholder="10-digit mobile number"
+                               required autocomplete="tel"
+                               pattern="[6-9][0-9]{9}"
+                               maxlength="10">
+                    </div>
+
+                    <!-- Health Concern -->
+                    <div class="form-group">
+                        <label for="problem">Health Concern / Problem Statement *</label>
+                        <textarea id="problem" name="06_Health_Concern" rows="4"
+                                  placeholder="Briefly describe your health goals or current concerns..."
+                                  required></textarea>
+                    </div>
+
+                    <!-- Date + Time Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred Date *</label>
+                            <input type="date" id="preferred-date" name="07_Preferred_Date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred-time">Preferred Time *</label>
+                            <select id="preferred-time" name="08_Preferred_Time" required>
+                                <option value="">Select time</option>
+                                <option value="Morning (7AM - 8AM)">Morning (7AM – 8AM)</option>
+                                <option value="Night (8PM - 9PM)">Night (8PM – 9PM)</option>
+                                <option value="Night (9PM - 10PM)">Night (9PM – 10PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="form-group">
+                        <label for="additional-notes">Additional Notes</label>
+                        <textarea id="additional-notes" name="09_Additional_Notes" rows="3"
+                                  placeholder="Any other details, medical history, or questions..."></textarea>
+                    </div>
+
+                    <!-- Payment Box -->
+                    <div class="payment-info-box">
+                        <div class="payment-highlight">
+                            To proceed with the <strong id="selected-plan-text">1 Week Starter</strong>, please make the payment of:
+                        </div>
+                        <div class="payment-details">
+                            <div class="amount-section">
+                                <span class="amount-label">Amount:</span>
+                                <span class="amount" id="selected-plan-amount">&#8377;1,999</span>
+                            </div>
+                            <div class="payment-options">
+                                <a href="upi://pay?pa=9334820030&pn=Dt%20Shreya&cu=INR&am=1999" class="upi-app-link" id="pay-upi-app-btn">
+                                    <i class="fas fa-mobile-alt"></i> Pay via UPI App
+                                </a>
+                                <a href="#" class="upi-link" id="download-qr-btn" onclick="downloadQRCode(event)">
+                                    <i class="fas fa-qrcode"></i> Download QR
+                                </a>
+                                <a href="#" class="upi-id-copy" id="copy-upi-btn" onclick="copyUPIId(event)">
+                                    <i class="fas fa-copy"></i> Copy UPI ID
+                                </a>
+                                <a href="#" class="view-qr-btn" id="view-qr-btn" onclick="toggleQRView(event)">
+                                    <i class="fas fa-eye"></i> View QR
+                                </a>
+                            </div>
+
+                            <!-- QR Code Display (hidden by default) -->
+                            <div id="qr-display" class="qr-display-container" style="display:none;">
+                                <div class="qr-image-wrapper">
+                                    <img src="images/qr.webp" alt="Payment QR Code — Scan with any UPI app">
+                                    <p class="qr-instructions">Scan this QR code with any UPI app to make payment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-note">
+                            <i class="fas fa-info-circle"></i>
+                            <div class="note-text">
+                                <p>Kindly share the payment confirmation screenshot once done.</p>
+                                <p>Your personalized plan will begin immediately after confirmation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Proof Upload -->
+                    <div class="form-group">
+                        <label for="payment-proof">Upload Payment Proof * (Image or PDF)</label>
+                        <input type="file" id="payment-proof" name="10_Payment_Proof"
+                               accept="image/jpeg,image/png,image/gif,image/webp,application/pdf"
+                               required>
+                        <div class="payment-required">
+                            <i class="fas fa-paperclip"></i>
+                            Accepted formats: JPG, PNG, GIF, WebP, PDF — Max 10MB
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn form-submit-btn" id="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit Appointment Request</span>
+                    </button>
+                </form>
             </div>
         </div>
-        
-        <div class="form-group">
-            <label for="payment-proof">Upload Payment Proof* (Image, PDF, or Screenshot)</label>
-            <input type="file" id="payment-proof" name="10_Payment_Proof_Screenshot" accept="image/*,.pdf" required>
-            <div class="payment-required">
-                <i class="fas fa-info-circle"></i>
-                Accepted formats: JPG, PNG, GIF, PDF (Max size: 10MB)
-            </div>
-        </div>
+    </section>
 
-        <button type="submit" class="btn">Submit Appointment Request</button>
-    </form>
-</section>
-
+    <!-- ════════════════════════════════════════════
+         FAQ SECTION
+    ════════════════════════════════════════════ -->
     <section id="faq" class="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="divider"></div>
+        <div class="section-head reveal">
+            <p class="section-label"><i class="fas fa-question-circle"></i> Got Questions?</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="divider"></div>
+        </div>
+
         <div class="faq-container">
-            <div class="faq-item">
+            <div class="faq-item reveal">
                 <div class="faq-question">
                     <h3>What should I expect during my first consultation?</h3>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>During your first consultation, we will discuss your health history, current diet, lifestyle, and health goals. I will perform a nutritional assessment and create a personalized plan tailored to your specific needs. The initial consultation typically lasts about 60-90 minutes.</p>
+                    <p>During your first consultation, we will discuss your health history, current diet, lifestyle, and health goals. I will perform a nutritional assessment and create a personalized plan tailored to your specific needs. The initial consultation typically lasts about 60–90 minutes.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item reveal reveal-delay-1">
                 <div class="faq-question">
                     <h3>How often will I need to schedule appointments?</h3>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>After the initial consultation, follow-up appointments are typically scheduled every 2-4 weeks depending on your specific needs and goals. As you progress, the frequency may decrease to monthly or quarterly check-ins for maintenance.</p>
+                    <p>After the initial consultation, follow-up appointments are typically scheduled every 2–4 weeks depending on your specific needs and goals. As you progress, the frequency may decrease to monthly or quarterly check-ins for maintenance.</p>
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item reveal reveal-delay-2">
                 <div class="faq-question">
                     <h3>Can you help with specific health conditions?</h3>
                     <i class="fas fa-chevron-down"></i>
@@ -563,7 +661,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item reveal reveal-delay-3">
                 <div class="faq-question">
                     <h3>Do you provide meal plans?</h3>
                     <i class="fas fa-chevron-down"></i>
@@ -573,7 +671,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            <div class="faq-item reveal reveal-delay-3">
                 <div class="faq-question">
                     <h3>How long will it take to see results?</h3>
                     <i class="fas fa-chevron-down"></i>
@@ -585,445 +683,195 @@
         </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         CONTACT SECTION
+    ════════════════════════════════════════════ -->
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="divider"></div>
-        <div class="contact-info">
-            <div class="contact-card">
+        <div class="section-head reveal">
+            <p class="section-label"><i class="fas fa-envelope-open"></i> Reach Out</p>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card reveal">
                 <i class="fas fa-phone"></i>
                 <h3>Phone</h3>
-                <p>8229022055</p>
-                <a href="tel:8229022055" class="btn btn-sm">Call Now</a>
+                <p>+91 82290 22055</p>
+                <a href="tel:+918229022055" class="btn btn-sm">Call Now</a>
             </div>
-
-            <div class="contact-card">
+            <div class="contact-card reveal reveal-delay-1">
                 <i class="fas fa-envelope"></i>
                 <h3>Email</h3>
                 <p>shreya022055@gmail.com</p>
                 <a href="mailto:shreya022055@gmail.com" class="btn btn-sm">Send Email</a>
             </div>
-
-            <div class="contact-card">
+            <div class="contact-card reveal reveal-delay-2">
                 <i class="fab fa-linkedin"></i>
                 <h3>LinkedIn</h3>
                 <p>Connect with Dt. Shreya</p>
-                <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" class="btn btn-sm">View Profile</a>
+                <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" rel="noopener" class="btn btn-sm">View Profile</a>
             </div>
-
-            <div class="contact-card">
+            <div class="contact-card reveal reveal-delay-2">
                 <i class="fab fa-whatsapp"></i>
                 <h3>WhatsApp</h3>
-                <p>8229022055</p>
-                <a href="https://wa.me/918229022055" target="_blank" class="btn btn-sm">Message</a>
+                <p>+91 82290 22055</p>
+                <a href="https://wa.me/918229022055" target="_blank" rel="noopener" class="btn btn-sm">Message</a>
             </div>
-
-            <div class="contact-card">
+            <div class="contact-card reveal reveal-delay-3">
                 <i class="fab fa-instagram"></i>
                 <h3>Instagram</h3>
                 <p>@nutritional_therapy__</p>
-                <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" class="btn btn-sm">View Profile</a>
+                <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" rel="noopener" class="btn btn-sm">Follow Us</a>
             </div>
         </div>
-
-
     </section>
 
+    <!-- ════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════ -->
     <footer>
-    <div class="footer-content">
-        <!-- Brand - Left -->
-        <div class="footer-brand">
-            <img src="images/leaf-logo.png" alt="Leaf Logo" style="width:65px; background:#fff; border-radius:8px; margin-bottom:18px;">
-            <h2 style="margin-left:0; font-weight:700; font-size:2rem;">Nutritional Therapy</h2>
-            <p style="margin-left:0; font-size:1.2rem;">By Dt. Shreya</p>
-        </div>
-        
-        <!-- Quick Links - Center -->
-        <div class="footer-links">
-            <h3 style="font-weight:700; font-size:1.35rem; margin-bottom:18px;">Quick Links</h3>
-            <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:16px;"><a href="#home" style="color:#fff; text-decoration:none; font-size:1.15rem;">Home</a></li>
-                <li style="margin-bottom:16px;"><a href="#about" style="color:#fff; text-decoration:none; font-size:1.15rem;">About</a></li>
-                <li style="margin-bottom:16px;"><a href="#services" style="color:#fff; text-decoration:none; font-size:1.15rem;">Services</a></li>
-                <li style="margin-bottom:16px;"><a href="#appointment" style="color:#fff; text-decoration:none; font-size:1.15rem;">Book Appointment</a></li>
-                <li style="margin-bottom:16px;"><a href="#faq" style="color:#fff; text-decoration:none; font-size:1.15rem;">FAQ</a></li>
-                <li><a href="#contact" style="color:#fff; text-decoration:none; font-size:1.15rem;">Contact</a></li>
-            </ul>
-        </div>
-        
-        <!-- Contact Info - Right -->
-        <div class="footer-contact">
-            <h3>Contact Info</h3>
-            <p><i class="fas fa-phone"></i>+91 8229022055</p>
-            <p><i class="fas fa-envelope"></i>shreya022055@gmail.com</p>
-            <div class="social-links" style="display:flex; gap:15px; justify-content:flex-end; margin-top:20px;">
-                <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/918229022055" target="_blank" style="color:#fff; background:rgba(255,255,255,0.1); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="images/logo.webp" alt="Nutritional Therapy Logo">
+                <h2>Nutritional Therapy</h2>
+                <p>By Dt. Shreya</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#appointment">Book Appointment</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-phone"></i> +91 82290 22055</p>
+                <p><i class="fas fa-envelope"></i> shreya022055@gmail.com</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shreya-076b48284" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nutritional_therapy__?igsh=MTc4MmNjODlibWZ5eA==" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/918229022055" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nutritional Therapy by Dt. Shreya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact">
+        <a href="tel:+918229022055" class="float-btn float-call" aria-label="Call Now">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/918229022055" target="_blank" rel="noopener" class="float-btn float-wa" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
-        <div class="thank-you-message">
-        <p>Thank you for visiting Nutritional Therapy by Dt. Shreya.</p>
-        <p>Let's begin this journey towards better health together.</p>
-    </div>
-</footer>
 
     <script src="script.js"></script>
+
+    <!-- Inline: Payment & QR functions (global scope required for onclick) -->
     <script>
-// Function to copy UPI ID to clipboard
-function copyUPIId(event) {
-    event.preventDefault();
-    const upiId = "shreya022055@oksbi";
-    
-    // Try to use the modern clipboard API
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(upiId).then(function() {
-            showCopyMessage("UPI ID copied to clipboard!");
-        }).catch(function() {
-            fallbackCopyTextToClipboard(upiId);
-        });
-    } else {
-        // Fallback for older browsers
-        fallbackCopyTextToClipboard(upiId);
-    }
-}
-
-// Function to download QR code
-function downloadQRCode(event) {
-    event.preventDefault();
-    
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = 'images/qr shreya.jpeg';
-    link.download = 'Payment_QR_Code.jpeg';
-    
-    // Append to body, click, and remove
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show success message
-    showCopyMessage("QR Code downloaded successfully!");
-}
-
-// Function to toggle QR code display
-function toggleQRView(event) {
-    event.preventDefault();
-    
-    const qrDisplay = document.getElementById('qr-display');
-    const button = event.target.closest('.view-qr-btn');
-    const icon = button.querySelector('i');
-    const text = button.childNodes[2]; // Get the text node
-    
-    if (qrDisplay.style.display === 'none' || qrDisplay.style.display === '') {
-        // Show QR code
-        qrDisplay.style.display = 'block';
-        icon.className = 'fas fa-eye-slash';
-        text.textContent = ' Hide QR';
-        
-        // Smooth scroll to QR code
-        setTimeout(() => {
-            qrDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-    } else {
-        // Hide QR code
-        qrDisplay.style.display = 'none';
-        icon.className = 'fas fa-eye';
-        text.textContent = ' View QR';
-    }
-}
-
-// Fallback copy function for older browsers
-function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-999999px";
-    textArea.style.top = "-999999px";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        showCopyMessage("UPI ID copied to clipboard!");
-    } catch (err) {
-        showCopyMessage("Failed to copy. Please copy manually: " + text);
-    }
-    
-    document.body.removeChild(textArea);
-}
-
-// Function to show copy message
-function showCopyMessage(message) {
-    // Create or update existing message element
-    let messageEl = document.getElementById('copy-message');
-    if (!messageEl) {
-        messageEl = document.createElement('div');
-        messageEl.id = 'copy-message';
-        messageEl.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4caf50;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10000;
-            font-size: 14px;
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-        `;
-        document.body.appendChild(messageEl);
-    }
-    
-    messageEl.textContent = message;
-    messageEl.style.opacity = '1';
-    messageEl.style.transform = 'translateY(0)';
-    
-    // Hide message after 3 seconds
-    setTimeout(() => {
-        messageEl.style.opacity = '0';
-        messageEl.style.transform = 'translateY(-20px)';
-        setTimeout(() => {
-            if (messageEl && messageEl.parentNode) {
-                messageEl.parentNode.removeChild(messageEl);
-            }
-        }, 300);
-    }, 3000);
-}
-
-// filepath: c:\Users\jhash\Documents\Nutritionist\index.html
-// Simple in-memory slot tracking (replace with backend for real use)
-const scheduleData = [
-    { date: '2025-07-28', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
-    { date: '2025-07-29', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
-    { date: '2025-07-30', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
-    { date: '2025-07-31', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } },
-    { date: '2025-08-01', slots: { '09:30': 0, '11:00': 0, '16:00': 0, '18:00': 0 } }
-];
-let selectedDate = null;
-let selectedTime = null;
-
-function renderDates() {
-    const datesDiv = document.querySelector('.schedule-dates');
-    datesDiv.innerHTML = '';
-    scheduleData.forEach((d, idx) => {
-        const btn = document.createElement('button');
-        btn.textContent = new Date(d.date).toDateString();
-        btn.className = 'date-btn';
-        btn.onclick = () => {
-            selectedDate = idx;
-            selectedTime = null;
-            renderDates();
-            renderTimeSlots();
-        };
-        if (selectedDate === idx) btn.classList.add('active');
-        datesDiv.appendChild(btn);
+    // Record form load time (timing-based bot protection)
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadField = document.getElementById('_form_loaded');
+        if (loadField) loadField.value = Date.now().toString();
     });
-}
-function renderTimeSlots() {
-    const slotsDiv = document.getElementById('time-slots');
-    slotsDiv.innerHTML = '';
-    if (selectedDate === null) return;
-    const slotEntries = Object.entries(scheduleData[selectedDate].slots);
-    slotEntries.forEach(([time, count]) => {
-        const btn = document.createElement('button');
-        btn.textContent = `${time} (${2 - count} slots left)`;
-        btn.className = 'time-btn';
-        btn.disabled = count >= 2;
-        btn.onclick = () => {
-            selectedTime = time;
-            renderTimeSlots();
-            document.getElementById('book-slot-btn').disabled = false;
-        };
-        if (selectedTime === time) btn.classList.add('active');
-        slotsDiv.appendChild(btn);
-    });
-    document.getElementById('book-slot-btn').disabled = !selectedTime;
-}
-document.getElementById('book-slot-btn').onclick = function() {
-    if (selectedDate !== null && selectedTime) {
-        if (scheduleData[selectedDate].slots[selectedTime] < 2) {
-            scheduleData[selectedDate].slots[selectedTime]++;
-            document.getElementById('booking-message').textContent = "Slot booked! (Demo only, not saved)";
-            renderTimeSlots();
+
+    function copyUPIId(event) {
+        event.preventDefault();
+        const upiId = "+91 93348 20030";
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(upiId)
+                .then(() => showCopyMessage("UPI ID copied to clipboard!"))
+                .catch(() => fallbackCopyTextToClipboard(upiId));
         } else {
-            document.getElementById('booking-message').textContent = "Sorry, this slot is full.";
+            fallbackCopyTextToClipboard(upiId);
         }
     }
-};
-renderDates();
-</script>
-<style>
-/* filepath: c:\Users\jhash\Documents\Nutritionist\index.html */
-.schedule { margin: 40px 0; }
-.schedule-dates, #time-slots { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
-.date-btn, .time-btn { padding: 8px 16px; border: 1px solid #4caf50; background: #fff; cursor: pointer; border-radius: 5px; }
-.date-btn.active, .time-btn.active { background: #4caf50; color: #fff; }
-.date-btn:disabled, .time-btn:disabled { background: #eee; color: #aaa; cursor: not-allowed; }
-#book-slot-btn { margin-top: 10px; }
-#booking-message { margin-top: 10px; color: #388e3c; }
-.payment-info-box {
-    background: #f7fff7;
-    border: 2px solid #4caf50;
-    border-radius: 12px;
-    padding: 24px 20px 18px 20px;
-    margin-bottom: 32px;
-    box-shadow: 0 2px 12px rgba(76,175,80,0.07);
-    max-width: 600px;
-}
-.payment-info-box h3 {
-    color: #388e3c;
-    margin-bottom: 10px;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.payment-highlight {
-    font-size: 1.1rem;
-    color: #222;
-    margin-bottom: 10px;
-}
-.amount {
-    color: #388e3c;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-.payment-details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 10px 0;
-}
-.payment-details li {
-    margin-bottom: 6px;
-    font-size: 1rem;
-}
-.upi-id {
-    font-family: monospace;
-    background: #e8f5e9;
-    padding: 2px 6px;
-    border-radius: 4px;
-}
-.qr-code-box {
-    margin: 10px 0 0 0;
-    text-align: left;
-}
-.qr-img {
-    width: 120px;
-    height: 120px;
-    border: 1px solid #c8e6c9;
-    border-radius: 8px;
-    background: #fff;
-}
-.payment-note {
-    margin-top: 14px;
-    background: #e8f5e9;
-    border-left: 4px solid #4caf50;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-size: 0.98rem;
-}
-.payment-note i {
-    color: #388e3c;
-    margin-right: 6px;
-}
-.payment-options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-.payment-options a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    background: #4caf50;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-.payment-options a:hover {
-    background: #388e3c;
-    transform: translateY(-1px);
-}
-.view-qr-btn {
-    background: #2196f3 !important;
-}
-.view-qr-btn:hover {
-    background: #1976d2 !important;
-}
-.qr-display-container {
-    margin-top: 20px;
-    padding: 20px;
-    background: #fff;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.qr-image-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-.qr-display-image {
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-    border: 2px solid #4caf50;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(76,175,80,0.2);
-}
-.qr-instructions {
-    color: #555;
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 500;
-}
-.thank-you {
-    color: #388e3c;
-    font-weight: 600;
-}
-.thank-you-message {
-    text-align: center;
-    margin: 40px 0 20px 0;
-    font-size: 1.15rem;
-    color: #388e3c;
-    font-weight: 500;
-}
-@media (max-width: 600px) {
-    .payment-info-box { padding: 14px 6px; }
-    .qr-img { width: 90px; height: 90px; }
-}
-</style>
 
+    function downloadQRCode(event) {
+        event.preventDefault();
+        const link = document.createElement('a');
+        link.href = 'images/qr shreya.jpeg';
+        link.download = 'Payment_QR_Dt_Shreya.jpeg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showCopyMessage("QR Code downloaded!");
+    }
+
+    function toggleQRView(event) {
+        event.preventDefault();
+        const qrDisplay = document.getElementById('qr-display');
+        const btn = event.target.closest('.view-qr-btn');
+        const icon = btn.querySelector('i');
+        const isHidden = qrDisplay.style.display === 'none' || qrDisplay.style.display === '';
+        qrDisplay.style.display = isHidden ? 'block' : 'none';
+        icon.className = isHidden ? 'fas fa-eye-slash' : 'fas fa-eye';
+        btn.childNodes[btn.childNodes.length - 1].textContent = isHidden ? ' Hide QR' : ' View QR';
+        if (isHidden) setTimeout(() => qrDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+
+    function fallbackCopyTextToClipboard(text) {
+        const el = document.createElement("textarea");
+        el.value = text;
+        el.style.cssText = "position:fixed;left:-9999px;top:-9999px;";
+        document.body.appendChild(el);
+        el.focus(); el.select();
+        try {
+            document.execCommand('copy');
+            showCopyMessage("UPI ID copied!");
+        } catch(err) {
+            showCopyMessage("Copy manually: " + text);
+        }
+        document.body.removeChild(el);
+    }
+
+    function showCopyMessage(message) {
+        let el = document.getElementById('copy-message');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'copy-message';
+            Object.assign(el.style, {
+                position:'fixed', top:'24px', right:'24px',
+                background: 'linear-gradient(135deg, #2d7a52, #1e4d35)',
+                color:'white', padding:'14px 22px',
+                borderRadius:'12px',
+                boxShadow:'0 8px 24px rgba(26,58,42,0.3)',
+                zIndex:'10000', fontSize:'14px', fontWeight:'600',
+                opacity:'0', transform:'translateY(-16px)',
+                transition:'all 0.3s cubic-bezier(.4,0,.2,1)',
+                display:'flex', alignItems:'center', gap:'8px',
+                fontFamily: "'Inter', sans-serif"
+            });
+            document.body.appendChild(el);
+        }
+        el.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        setTimeout(() => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-16px)';
+            setTimeout(() => el.parentNode && el.parentNode.removeChild(el), 400);
+        }, 3000);
+    }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

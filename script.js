@@ -1,511 +1,414 @@
-// Form validation and submission
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation and Hide-on-Scroll Functionality
-    const header = document.querySelector('header');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    
-    let lastScrollTop = 0;
-    let isScrolling = false;
-    
-    // Mobile menu toggle
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+// ============================================================
+// NUTRITIONAL THERAPY — PREMIUM REDESIGN  |  script.js
+// ============================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* ─────────────────────────────────────────────
+       1.  MOBILE NAVIGATION
+    ───────────────────────────────────────────── */
+    const header       = document.getElementById('main-header');
+    const mobileBtn    = document.getElementById('mobile-menu-btn');
+    const navLinks     = document.getElementById('nav-links');
+    const navLinkItems = document.querySelectorAll('#nav-links a');
+
+    function closeMobileMenu() {
+        navLinks.classList.remove('active');
+        const icon = mobileBtn.querySelector('i');
+        icon.className = 'fas fa-bars';
+    }
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.toggle('active');
+            const icon = mobileBtn.querySelector('i');
+            icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
         });
-        
-        // Close mobile menu when clicking on nav links
-        navLinksItems.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+
+        navLinkItems.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('nav')) closeMobileMenu();
+        });
+    }
+
+    /* ─────────────────────────────────────────────
+       2.  SCROLL: HIDE / SHOW NAV + SCROLLED CLASS
+    ───────────────────────────────────────────── */
+    let lastScrollY   = 0;
+    let ticking       = false;
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const currentY = window.scrollY;
+
+                // Scrolled class for glass shadow
+                if (currentY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Hide on scroll-down past 200px; show on scroll-up
+                if (currentY > 200 && currentY > lastScrollY) {
+                    header.classList.add('nav-hidden');
+                } else if (currentY < lastScrollY) {
+                    header.classList.remove('nav-hidden');
+                }
+
+                if (currentY <= 50) header.classList.remove('nav-hidden');
+
+                lastScrollY = currentY;
+                ticking     = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ─────────────────────────────────────────────
+       3.  SMOOTH SCROLL FOR ALL ANCHOR LINKS
+    ───────────────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            const offset = header ? header.offsetHeight + 20 : 80;
+            window.scrollTo({
+                top: target.offsetTop - offset,
+                behavior: 'smooth'
             });
         });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('nav')) {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-    
-    // Hide/Show navbar on scroll
-    function handleScroll() {
-        if (isScrolling) return;
-        
-        isScrolling = true;
-        requestAnimationFrame(() => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Only hide on mobile/tablet and when scrolling down past 100px
-            if (scrollTop > 100 && scrollTop > lastScrollTop) {
-                // Scrolling down - hide navbar
-                header.classList.add('nav-hidden');
-            } else if (scrollTop < lastScrollTop) {
-                // Scrolling up - show navbar
-                header.classList.remove('nav-hidden');
-            }
-            
-            // Always show navbar at top of page
-            if (scrollTop <= 50) {
-                header.classList.remove('nav-hidden');
-            }
-            
-            lastScrollTop = scrollTop;
-            isScrolling = false;
-        });
-    }
-    
-    // Throttled scroll event listener
-    let scrollTimeout;
-    window.addEventListener('scroll', function() {
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
-        scrollTimeout = setTimeout(handleScroll, 10);
-    });
-    
-    // Smooth scrolling for navigation links
-    navLinksItems.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
 
-    // Who I Serve dropdown functionality
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const whoIServe = document.querySelector('.who-i-serve');
+    /* ─────────────────────────────────────────────
+       4.  SCROLL-REVEAL ANIMATIONS
+    ───────────────────────────────────────────── */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    if (dropdownToggle && whoIServe) {
-        // Ensure it starts collapsed
-        whoIServe.classList.add('collapsed');
-        whoIServe.classList.remove('expanded');
-
-        dropdownToggle.addEventListener('click', function() {
-            // Toggle classes
-            if (whoIServe.classList.contains('collapsed')) {
-                whoIServe.classList.remove('collapsed');
-                whoIServe.classList.add('expanded');
-                dropdownToggle.classList.add('active');
-            } else {
-                whoIServe.classList.add('collapsed');
-                whoIServe.classList.remove('expanded');
-                dropdownToggle.classList.remove('active');
-            }
-        });
+        revealEls.forEach(el => revealObs.observe(el));
+    } else {
+        // Fallback: just show all
+        revealEls.forEach(el => el.classList.add('visible'));
     }
 
-    // Services tabs functionality - Fix this section
-    const serviceTabs = document.querySelectorAll('.service-tab');
+    /* ─────────────────────────────────────────────
+       5.  SERVICE TABS
+    ───────────────────────────────────────────── */
+    const serviceTabs     = document.querySelectorAll('.service-tab');
     const serviceContents = document.querySelectorAll('.service-content');
 
     serviceTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            console.log('Tab clicked:', tab.getAttribute('data-service')); // Debug log
-            
-            // Remove active class from all tabs
+        tab.addEventListener('click', function () {
             serviceTabs.forEach(t => t.classList.remove('active'));
+            serviceContents.forEach(c => c.classList.remove('active'));
 
-            // Add active class to clicked tab
-            tab.classList.add('active');
-
-            // Hide all content sections
-            serviceContents.forEach(content => content.classList.remove('active'));
-
-            // Show the corresponding content section
-            const serviceId = tab.getAttribute('data-service');
-            const targetContent = document.getElementById(serviceId);
-            if (targetContent) {
-                targetContent.classList.add('active');
-                console.log('Content shown:', serviceId); // Debug log
-            }
-
-            // Add a small animation to the icon
-            const icon = tab.querySelector('i');
-            if (icon) {
-                icon.classList.add('fa-bounce');
-                setTimeout(() => {
-                    icon.classList.remove('fa-bounce');
-                }, 500);
-            }
+            this.classList.add('active');
+            const id = this.dataset.service;
+            const content = document.getElementById(id);
+            if (content) content.classList.add('active');
         });
     });
 
-    // FAQ accordion functionality - Fix this section
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    /* ─────────────────────────────────────────────
+       6.  WHO I SERVE DROPDOWN
+    ───────────────────────────────────────────── */
+    const whoToggle  = document.getElementById('who-serve-toggle');
+    const whoContent = document.getElementById('who-serve-content');
 
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            console.log('FAQ clicked'); // Debug log
-            const faqItem = question.parentElement;
+    if (whoToggle && whoContent) {
+        whoContent.classList.add('collapsed');
 
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                if (item !== faqItem) {
-                    item.classList.remove('active');
-                }
-            });
+        whoToggle.addEventListener('click', function () {
+            const isCollapsed = whoContent.classList.contains('collapsed');
+            whoContent.classList.toggle('collapsed', !isCollapsed);
+            whoContent.classList.toggle('expanded', isCollapsed);
+            whoToggle.classList.toggle('active', isCollapsed);
+        });
+    }
 
-            // Toggle the clicked FAQ item
-            faqItem.classList.toggle('active');
+    /* ─────────────────────────────────────────────
+       7.  FEATURES SLIDER
+    ───────────────────────────────────────────── */
+    const track     = document.getElementById('features-track');
+    const dotsWrap  = document.getElementById('slider-dots');
+    const prevBtn   = document.getElementById('slider-prev');
+    const nextBtn   = document.getElementById('slider-next');
+
+    if (track && dotsWrap) {
+        const slides  = track.querySelectorAll('.feature-slide');
+        let currentI  = 0;
+
+        function getVisible() {
+            return Math.max(1, Math.floor(track.offsetWidth / 280));
+        }
+
+        function buildDots() {
+            dotsWrap.innerHTML = '';
+            const count = Math.max(1, slides.length - getVisible() + 1);
+            for (let i = 0; i < count; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            }
+        }
+
+        function updateDots() {
+            dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) =>
+                d.classList.toggle('active', i === currentI)
+            );
+        }
+
+        function goTo(idx) {
+            const max = Math.max(0, slides.length - getVisible());
+            currentI = Math.max(0, Math.min(idx, max));
+            const slideW = slides[0].offsetWidth + 20;
+            track.scrollTo({ left: currentI * slideW, behavior: 'smooth' });
+            updateDots();
+        }
+
+        prevBtn && prevBtn.addEventListener('click', () => goTo(currentI - 1));
+        nextBtn && nextBtn.addEventListener('click', () => goTo(currentI + 1));
+
+        track.addEventListener('scroll', () => {
+            const slideW = slides[0].offsetWidth + 20;
+            currentI = Math.round(track.scrollLeft / slideW);
+            updateDots();
+        });
+
+        buildDots();
+        goTo(0);
+        window.addEventListener('resize', () => { buildDots(); goTo(0); });
+    }
+
+    /* ─────────────────────────────────────────────
+       8.  FAQ ACCORDION
+    ───────────────────────────────────────────── */
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', function () {
+            const item = q.closest('.faq-item');
+            const wasActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+            // Open clicked (unless it was already open)
+            if (!wasActive) item.classList.add('active');
         });
     });
 
-    // Form validation and submission
-    const appointmentForm = document.getElementById('appointment-form');
-    const pricingPlan = document.getElementById('pricing-plan');
-    const selectedServiceType = document.getElementById('selected-service-type');
-    const selectedPlanText = document.getElementById('selected-plan-text');
-    const selectedPlanAmount = document.getElementById('selected-plan-amount');
-    const pricingEnrollButtons = document.querySelectorAll('.pricing-enroll-btn');
+    /* ─────────────────────────────────────────────
+       9.  PRICING PLAN SYNC  (Enroll → Form)
+    ───────────────────────────────────────────── */
+    const pricingPlan      = document.getElementById('pricing-plan');
+    const serviceTypeInput = document.getElementById('selected-service-type');
+    const planTextEl       = document.getElementById('selected-plan-text');
+    const planAmountEl     = document.getElementById('selected-plan-amount');
 
-    const planAmountMap = {
-        '1 Week Starter - ₹1,999': '₹1,999',
-        '1 Month Plan - ₹4,499': '₹4,499',
-        '3 Months Plan - ₹12,999': '₹12,999',
-        '6 Months Plan - ₹24,999': '₹24,999'
+    const planMap = {
+        '1 Week Starter - &#8377;1,999':  { label: '1 Week Starter',  amount: '&#8377;1,999'  },
+        '1 Month Plan - &#8377;4,499':    { label: '1 Month Plan',     amount: '&#8377;4,499'  },
+        '3 Months Plan - &#8377;12,999':  { label: '3 Months Plan',    amount: '&#8377;12,999' },
+        '6 Months Plan - &#8377;24,999':  { label: '6 Months Plan',    amount: '&#8377;24,999' }
     };
 
-    function syncSelectedPlan(planValue) {
-        if (!planValue || !planAmountMap[planValue]) {
-            return;
-        }
-
-        if (pricingPlan) {
-            pricingPlan.value = planValue;
-        }
-
-        if (selectedServiceType) {
-            selectedServiceType.value = planValue;
-        }
-
-        if (selectedPlanText) {
-            selectedPlanText.textContent = planValue.split(' - ')[0];
-        }
-
-        if (selectedPlanAmount) {
-            selectedPlanAmount.textContent = planAmountMap[planValue];
+    function syncPlan(value) {
+        const info = planMap[value];
+        if (!info) return;
+        if (pricingPlan)      pricingPlan.value           = value;
+        if (serviceTypeInput) serviceTypeInput.value      = value;
+        if (planTextEl)       planTextEl.textContent      = info.label;
+        if (planAmountEl)     planAmountEl.innerHTML      = info.amount;
+        
+        // Update UPI Deep Link Amount
+        const payBtn = document.getElementById('pay-upi-app-btn');
+        if (payBtn) {
+            const rawAmount = info.amount.replace(/[^0-9]/g, '');
+            payBtn.href = `upi://pay?pa=9334820030&pn=Dt%20Shreya&cu=INR&am=${rawAmount}`;
         }
     }
 
     if (pricingPlan) {
-        pricingPlan.addEventListener('change', function() {
-            syncSelectedPlan(this.value);
-        });
+        pricingPlan.addEventListener('change', () => syncPlan(pricingPlan.value));
     }
 
-    pricingEnrollButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+    // "Enroll Now" buttons on pricing cards
+    document.querySelectorAll('.pricing-enroll-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
-
-            const chosenPlan = this.getAttribute('data-plan');
-            syncSelectedPlan(chosenPlan);
-
-            const appointmentSection = document.getElementById('appointment');
-            if (appointmentSection) {
-                const headerHeight = header ? header.offsetHeight : 80;
-                window.scrollTo({
-                    top: appointmentSection.offsetTop - headerHeight - 20,
-                    behavior: 'smooth'
-                });
+            const plan = this.dataset.plan;
+            syncPlan(plan);
+            const apptSection = document.getElementById('appointment');
+            if (apptSection) {
+                const offset = header ? header.offsetHeight + 20 : 80;
+                window.scrollTo({ top: apptSection.offsetTop - offset, behavior: 'smooth' });
             }
         });
     });
 
-    syncSelectedPlan('1 Week Starter - ₹1,999');
+    // Default plan
+    syncPlan('1 Week Starter - &#8377;1,999');
 
-    if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
-            // Basic form validation
-            const selectedPricingPlan = pricingPlan ? pricingPlan.value : '';
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const gender = document.getElementById('gender').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const problem = document.getElementById('problem').value;
-            const preferredDate = document.getElementById('preferred-date').value;
-            const preferredTime = document.getElementById('preferred-time').value;
-            const paymentProof = document.getElementById('payment-proof');
+    /* ─────────────────────────────────────────────
+       10. FORM VALIDATION + SUBMISSION
+    ───────────────────────────────────────────── */
+    const form        = document.getElementById('appointment-form');
+    const submitBtn   = document.getElementById('submit-btn');
+    const formLoaded  = document.getElementById('_form_loaded');
 
-            // Check if required fields are filled
-            if (!selectedPricingPlan || !name || !age || !gender || !email || !phone || !problem || !preferredDate || !preferredTime) {
-                e.preventDefault();
-                alert('Please fill in all required fields including your selected program.');
-                return;
-            }
+    // Set timestamp on load (timing trap)
+    if (formLoaded) formLoaded.value = Date.now().toString();
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                e.preventDefault();
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Age validation
-            if (age < 1 || age > 120) {
-                e.preventDefault();
-                alert('Please enter a valid age between 1 and 120.');
-                return;
-            }
-
-            // Phone validation (basic)
-            const phoneRegex = /^\d{10}$/;
-            if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
-                e.preventDefault();
-                alert('Please enter a valid 10-digit phone number.');
-                return;
-            }
-
-            // Payment proof validation
-            if (!paymentProof.files || paymentProof.files.length === 0) {
-                e.preventDefault();
-                alert('Please upload payment proof to proceed.');
-                return;
-            }
-
-            // Check file size (max 10MB)
-            if (paymentProof.files[0].size > 10 * 1024 * 1024) {
-                e.preventDefault();
-                alert('File size should be less than 10MB');
-                return;
-            }
-
-            // Check file type - allow images and PDFs
-            const validTypes = [
-                'image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp',
-                'application/pdf'
-            ];
-            
-            if (!validTypes.includes(paymentProof.files[0].type)) {
-                e.preventDefault();
-                alert('Please upload a valid file (JPG, PNG, GIF, PDF)');
-                return;
-            }
-
-            // If validation passes, the form will submit to FormSubmit
-            console.log('Form validated and submitting to FormSubmit');
-        });
+    // Set min date to today
+    const dateInput = document.getElementById('preferred-date');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
     }
 
-    // Smooth scrolling for navigation and footer links
-    const allNavLinks = document.querySelectorAll('nav a, .hero a, .footer-links a');
+    if (form) {
+        form.addEventListener('submit', function (e) {
 
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-
-            if (targetId && targetId.startsWith('#')) {
-                e.preventDefault();
-
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    const headerHeight = header ? header.offsetHeight : 80;
-                    window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight - 20,
-                        behavior: 'smooth'
-                    });
+            // ── Timing-based bot detection ──
+            if (formLoaded && formLoaded.value) {
+                const elapsed = Date.now() - parseInt(formLoaded.value, 10);
+                if (elapsed < 4000) {
+                    // Submitted in < 4s — almost certainly a bot
+                    e.preventDefault();
+                    showFormError('Submission too fast. Please review your answers and try again.');
+                    return;
                 }
             }
+
+            // ── Field Validation ──
+            const fields = {
+                plan:     pricingPlan ? pricingPlan.value : '',
+                name:     (document.getElementById('name')?.value || '').trim(),
+                age:      parseInt(document.getElementById('age')?.value || '0', 10),
+                gender:   document.getElementById('gender')?.value || '',
+                email:    (document.getElementById('email')?.value || '').trim(),
+                phone:    (document.getElementById('phone')?.value || '').replace(/\D/g, ''),
+                problem:  (document.getElementById('problem')?.value || '').trim(),
+                date:     document.getElementById('preferred-date')?.value || '',
+                time:     document.getElementById('preferred-time')?.value || '',
+            };
+            const proof = document.getElementById('payment-proof');
+
+            if (!fields.plan || !fields.name || !fields.gender || !fields.email ||
+                !fields.phone || !fields.problem || !fields.date || !fields.time) {
+                e.preventDefault();
+                showFormError('Please fill in all required fields.');
+                return;
+            }
+
+            if (fields.age < 1 || fields.age > 120) {
+                e.preventDefault();
+                showFormError('Please enter a valid age (1–120).');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
+                e.preventDefault();
+                showFormError('Please enter a valid email address.');
+                return;
+            }
+
+            if (!/^[6-9]\d{9}$/.test(fields.phone)) {
+                e.preventDefault();
+                showFormError('Please enter a valid 10-digit Indian mobile number.');
+                return;
+            }
+
+            if (!proof || !proof.files || proof.files.length === 0) {
+                e.preventDefault();
+                showFormError('Please upload your payment proof.');
+                return;
+            }
+
+            const file = proof.files[0];
+            if (file.size > 10 * 1024 * 1024) {
+                e.preventDefault();
+                showFormError('File too large. Maximum allowed size is 10MB.');
+                return;
+            }
+
+            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
+            if (!allowedTypes.includes(file.type)) {
+                e.preventDefault();
+                showFormError('Invalid file type. Please upload JPG, PNG, GIF, WebP, or PDF.');
+                return;
+            }
+
+            // All good — disable button to prevent double-submit
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Submitting…</span>';
+            }
         });
-    });
-
-    // Initialize FAQ items - Remove the first one being open by default
-    // This was causing issues with the functionality
-
-    // Features slider functionality
-    const featuresTrack = document.querySelector('.features-track');
-    const sliderDots = document.querySelector('.slider-dots');
-    const prevButton = document.querySelector('.slider-arrow.prev');
-    const nextButton = document.querySelector('.slider-arrow.next');
-
-    if (featuresTrack && sliderDots) {
-        const slides = featuresTrack.querySelectorAll('.feature-slide');
-        let currentIndex = 0;
-        const slidesToShow = Math.floor(featuresTrack.offsetWidth / 300);
-        const maxIndex = Math.max(0, slides.length - slidesToShow);
-
-        // Create dots
-        for (let i = 0; i <= maxIndex; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('slider-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            sliderDots.appendChild(dot);
-        }
-
-        // Update dots
-        function updateDots() {
-            const dots = sliderDots.querySelectorAll('.slider-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        // Go to slide
-        function goToSlide(index) {
-            currentIndex = Math.max(0, Math.min(index, maxIndex));
-            const slideWidth = slides[0].offsetWidth + 20; // 20px is the gap
-            featuresTrack.scrollLeft = currentIndex * slideWidth;
-            updateDots();
-        }
-
-        // Previous slide
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                goToSlide(currentIndex - 1);
-            });
-        }
-
-        // Next slide
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                goToSlide(currentIndex + 1);
-            });
-        }
-
-        // Handle scroll events
-        featuresTrack.addEventListener('scroll', () => {
-            const slideWidth = slides[0].offsetWidth + 20;
-            currentIndex = Math.round(featuresTrack.scrollLeft / slideWidth);
-            updateDots();
-        });
-
-        // Initialize
-        goToSlide(0);
     }
 
-    // Animate thank you message on scroll
-    const thankYouMessage = document.querySelector('.thank-you-message');
-    if (thankYouMessage) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    thankYouMessage.style.opacity = '1';
-                    thankYouMessage.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.5 });
+    /* ─────────────────────────────────────────────
+       11. UPI/PAYMENT — MOBILE DETECTION
+    ───────────────────────────────────────────── */
+    const isMobile   = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const downloadBtn = document.getElementById('download-qr-btn');
+    const copyBtn     = document.getElementById('copy-upi-btn');
+    const upiAppBtn   = document.getElementById('pay-upi-app-btn');
 
-        observer.observe(thankYouMessage);
-    }
-
-    // Add touch device detection for UPI functionality
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints;
-    const upiLink = document.querySelector('.upi-link');
-    const upiIdCopy = document.querySelector('.upi-id-copy');
-    
-    if (isTouchDevice && upiLink && upiIdCopy) {
-        upiLink.style.display = 'none';
-        upiIdCopy.style.display = 'flex';
-    } else if (upiIdCopy) {
-        upiIdCopy.style.display = 'none';
-    }
-});
-
-// UPI copy function (needs to be global for onclick handlers)
-function copyUPIId(event) {
-    event.preventDefault();
-    const upiId = "shreya022055@oksbi";
-    
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(upiId).then(() => {
-            showCopyMessage("UPI ID copied to clipboard!");
-        }).catch(() => {
-            fallbackCopyTextToClipboard(upiId);
-        });
+    if (isMobile) {
+        if (downloadBtn) downloadBtn.style.display = 'none';
+        if (copyBtn)     copyBtn.style.display = 'inline-flex';
     } else {
-        fallbackCopyTextToClipboard(upiId);
+        if (copyBtn)   copyBtn.style.display = 'none';
     }
-}
 
-// Fallback copy function for older browsers
-function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-999999px";
-    textArea.style.top = "-999999px";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        showCopyMessage("UPI ID copied to clipboard!");
-    } catch (err) {
-        showCopyMessage("Failed to copy. Please copy manually: " + text);
-    }
-    
-    document.body.removeChild(textArea);
-}
+}); // end DOMContentLoaded
 
-// Function to show copy message
-function showCopyMessage(message) {
-    let messageEl = document.getElementById('copy-message');
-    if (!messageEl) {
-        messageEl = document.createElement('div');
-        messageEl.id = 'copy-message';
-        messageEl.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4caf50;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 10000;
-            font-size: 14px;
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-        `;
-        document.body.appendChild(messageEl);
+
+/* ─────────────────────────────────────────────
+   HELPERS — Global scope (used by onclick attrs)
+───────────────────────────────────────────── */
+
+function showFormError(message) {
+    let el = document.getElementById('form-error-msg');
+    if (!el) {
+        el = document.createElement('div');
+        el.id = 'form-error-msg';
+        Object.assign(el.style, {
+            background: '#fff0f0',
+            border: '1.5px solid #e55',
+            color: '#c00',
+            padding: '14px 20px',
+            borderRadius: '12px',
+            fontSize: '0.92rem',
+            fontWeight: '500',
+            marginBottom: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            fontFamily: "'Inter', sans-serif"
+        });
+        const form = document.getElementById('appointment-form');
+        if (form) {
+            const submitBtn = document.getElementById('submit-btn');
+            form.insertBefore(el, submitBtn);
+        }
     }
-    
-    messageEl.textContent = message;
-    messageEl.style.opacity = '1';
-    messageEl.style.transform = 'translateY(0)';
-    
-    setTimeout(() => {
-        messageEl.style.opacity = '0';
-        messageEl.style.transform = 'translateY(-20px)';
-        setTimeout(() => {
-            if (messageEl && messageEl.parentNode) {
-                messageEl.parentNode.removeChild(messageEl);
-            }
-        }, 300);
-    }, 3000);
+    el.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => { if (el.parentNode) el.parentNode.removeChild(el); }, 5000);
 }
