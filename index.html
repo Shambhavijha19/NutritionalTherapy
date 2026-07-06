@@ -447,18 +447,21 @@
             </p>
 
             <div class="form-card reveal">
-                <!-- Web3Forms configuration -->
+                <!-- FormSubmit configuration (Free with Uploads) -->
                 <form id="appointment-form"
-                      action="https://api.web3forms.com/submit"
+                      action="https://formsubmit.co/Shambhavijha1905@gmail.com"
                       method="POST"
                       enctype="multipart/form-data">
 
-                    <!-- Web3Forms hidden fields -->
-                    <input type="hidden" name="access_key" value="f60c5b23-f42a-4fa2-b23a-00752e16c5e0">
-                    <input type="hidden" name="redirect" value="https://Shambhavijha19.github.io/NutritionalTherapy/thank-you.html">
-                    <input type="hidden" name="subject" value="New Appointment Request — Nutritional Therapy">
+                    <!-- FormSubmit hidden fields -->
+                    <input type="hidden" name="_cc"       value="shreyajssaher@gmail.com">
+                    <input type="hidden" name="_next"     value="https://Shambhavijha19.github.io/NutritionalTherapy/thank-you.html">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject"  value="New Appointment Request — Nutritional Therapy">
                     <input type="hidden" id="selected-service-type" name="00_Service_Type" value="1 Week Starter - &#8377;1,999">
-                    <input type="hidden" name="from_name" value="Nutritional Therapy Website">
+                    
+                    <!-- CRITICAL: Force reCAPTCHA to stop spam -->
+                    <input type="hidden" name="_captcha" value="true">
 
                     <!-- Honeypot — bots fill this, humans don't see it -->
                     <input type="text" name="_honey"
