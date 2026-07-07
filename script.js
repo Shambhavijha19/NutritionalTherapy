@@ -376,6 +376,66 @@ document.addEventListener('DOMContentLoaded', function () {
         if (copyBtn)   copyBtn.style.display = 'none';
     }
 
+    /* ─────────────────────────────────────────────
+       WEB3FORMS — AJAX SUBMISSION
+       Sends to lnjoshihome@gmail.com instantly.
+       No email confirmation required.
+       Redirects to thank-you.html on success.
+    ───────────────────────────────────────────── */
+    const form       = document.getElementById('appointment-form');
+    const submitBtn  = document.getElementById('submit-btn');
+    const resultBox  = document.getElementById('form-result');
+
+    if (form) {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Basic validation
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Success — redirect to thank you page
+                    window.location.href = 'thank-you.html';
+                } else {
+                    // Show error inline
+                    resultBox.style.display = 'block';
+                    resultBox.style.background = '#fff0f0';
+                    resultBox.style.border = '1.5px solid #e55';
+                    resultBox.style.color = '#c00';
+                    resultBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again or contact us on WhatsApp.';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
+                    resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } catch (err) {
+                resultBox.style.display = 'block';
+                resultBox.style.background = '#fff0f0';
+                resultBox.style.border = '1.5px solid #e55';
+                resultBox.style.color = '#c00';
+                resultBox.innerHTML = '<i class="fas fa-wifi"></i> Network error. Please check your connection and try again.';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
+            }
+        });
+    }
+
 }); // end DOMContentLoaded
 
 
