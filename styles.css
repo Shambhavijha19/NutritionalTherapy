@@ -538,6 +538,7 @@ section {
   box-shadow: var(--shadow-lg);
   max-width: 400px;
   margin: 0 auto;
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 50%, var(--gold-dark) 100%);
 }
 .about-img-inner img {
   width: 100%;
