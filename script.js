@@ -264,101 +264,12 @@ document.addEventListener('DOMContentLoaded', function () {
     syncPlan('1 Week Starter - &#8377;1,999');
 
     /* ─────────────────────────────────────────────
-       10. FORM VALIDATION + SUBMISSION
+       10. FORM — Set min date to today
     ───────────────────────────────────────────── */
-    const form        = document.getElementById('appointment-form');
-    const submitBtn   = document.getElementById('submit-btn');
-    const formLoaded  = document.getElementById('_form_loaded');
-
-    // Set timestamp on load (timing trap)
-    if (formLoaded) formLoaded.value = Date.now().toString();
-
-    // Set min date to today
     const dateInput = document.getElementById('preferred-date');
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
-    }
-
-    if (form) {
-        form.addEventListener('submit', function (e) {
-
-            // ── Timing-based bot detection ──
-            if (formLoaded && formLoaded.value) {
-                const elapsed = Date.now() - parseInt(formLoaded.value, 10);
-                if (elapsed < 4000) {
-                    // Submitted in < 4s — almost certainly a bot
-                    e.preventDefault();
-                    showFormError('Submission too fast. Please review your answers and try again.');
-                    return;
-                }
-            }
-
-            // ── Field Validation ──
-            const fields = {
-                plan:     pricingPlan ? pricingPlan.value : '',
-                name:     (document.getElementById('name')?.value || '').trim(),
-                age:      parseInt(document.getElementById('age')?.value || '0', 10),
-                gender:   document.getElementById('gender')?.value || '',
-                email:    (document.getElementById('email')?.value || '').trim(),
-                phone:    (document.getElementById('phone')?.value || '').replace(/\D/g, ''),
-                problem:  (document.getElementById('problem')?.value || '').trim(),
-                date:     document.getElementById('preferred-date')?.value || '',
-                time:     document.getElementById('preferred-time')?.value || '',
-            };
-            const proof = document.getElementById('payment-proof');
-
-            if (!fields.plan || !fields.name || !fields.gender || !fields.email ||
-                !fields.phone || !fields.problem || !fields.date || !fields.time) {
-                e.preventDefault();
-                showFormError('Please fill in all required fields.');
-                return;
-            }
-
-            if (fields.age < 1 || fields.age > 120) {
-                e.preventDefault();
-                showFormError('Please enter a valid age (1–120).');
-                return;
-            }
-
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
-                e.preventDefault();
-                showFormError('Please enter a valid email address.');
-                return;
-            }
-
-            if (!/^[6-9]\d{9}$/.test(fields.phone)) {
-                e.preventDefault();
-                showFormError('Please enter a valid 10-digit Indian mobile number.');
-                return;
-            }
-
-            if (!proof || !proof.files || proof.files.length === 0) {
-                e.preventDefault();
-                showFormError('Please upload your payment proof.');
-                return;
-            }
-
-            const file = proof.files[0];
-            if (file.size > 10 * 1024 * 1024) {
-                e.preventDefault();
-                showFormError('File too large. Maximum allowed size is 10MB.');
-                return;
-            }
-
-            const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf'];
-            if (!allowedTypes.includes(file.type)) {
-                e.preventDefault();
-                showFormError('Invalid file type. Please upload JPG, PNG, GIF, WebP, or PDF.');
-                return;
-            }
-
-            // All good — disable button to prevent double-submit
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Submitting…</span>';
-            }
-        });
     }
 
     /* ─────────────────────────────────────────────
