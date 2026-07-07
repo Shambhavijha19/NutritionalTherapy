@@ -411,8 +411,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const data = await response.json();
 
                 if (data.success) {
-                    // Success — redirect to thank you page
-                    window.location.href = 'thank-you.html';
+                    // Redirect to thank-you page with user details as URL params
+                    const name  = encodeURIComponent(form.querySelector('#name').value.trim());
+                    const plan  = encodeURIComponent(form.querySelector('#pricing-plan').value.trim());
+                    window.location.href = `thank-you.html?name=${name}&plan=${plan}`;
                 } else {
                     // Show error inline
                     resultBox.style.display = 'block';
