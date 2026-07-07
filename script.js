@@ -288,61 +288,74 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ─────────────────────────────────────────────
-       WEB3FORMS — AJAX SUBMISSION
-       Sends to lnjoshihome@gmail.com instantly.
-       No email confirmation required.
-       Redirects to thank-you.html on success.
+       WEB3FORMS — AJAX SUBMISSION (JSON method)
+       Reliable delivery to lnjoshihome@gmail.com
     ───────────────────────────────────────────── */
-    const form       = document.getElementById('appointment-form');
-    const submitBtn  = document.getElementById('submit-btn');
-    const resultBox  = document.getElementById('form-result');
+    const form      = document.getElementById('appointment-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const resultBox = document.getElementById('form-result');
 
     if (form) {
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Basic validation
+            // HTML5 validation
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            // Show loading state
+            // Loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
+            if (resultBox) resultBox.style.display = 'none';
 
-            const formData = new FormData(form);
+            // Build JSON payload (more reliable than FormData for Web3Forms)
+            const payload = {
+                access_key: 'f60c5b23-f42a-4fa2-b23a-00752e16c5e0',
+                subject:    'New Appointment Request — Nutritional Therapy by Dt. Shreya',
+                from_name:  'Nutritional Therapy Website',
+                name:       (document.getElementById('name')?.value || '').trim(),
+                email:      (document.getElementById('email')?.value || '').trim(),
+                Phone_Number: (document.getElementById('phone')?.value || '').trim(),
+                Selected_Program: (document.getElementById('pricing-plan')?.value || '').trim(),
+                message:    (document.getElementById('message')?.value || '').trim(),
+                botcheck:   ''
+            };
 
             try {
+                // 10 second timeout
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 10000);
+
                 const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body:    JSON.stringify(payload),
+                    signal:  controller.signal
                 });
+                clearTimeout(timeout);
 
                 const data = await response.json();
 
                 if (data.success) {
-                    // Redirect to thank-you page with user details as URL params
-                    const name  = encodeURIComponent(form.querySelector('#name').value.trim());
-                    const plan  = encodeURIComponent(form.querySelector('#pricing-plan').value.trim());
+                    const name = encodeURIComponent(payload.name);
+                    const plan = encodeURIComponent(payload.Selected_Program);
                     window.location.href = `thank-you.html?name=${name}&plan=${plan}`;
                 } else {
-                    // Show error inline
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (err) {
+                if (resultBox) {
                     resultBox.style.display = 'block';
                     resultBox.style.background = '#fff0f0';
                     resultBox.style.border = '1.5px solid #e55';
                     resultBox.style.color = '#c00';
-                    resultBox.innerHTML = '<i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again or contact us on WhatsApp.';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
+                    resultBox.innerHTML = err.name === 'AbortError'
+                        ? '<i class="fas fa-wifi"></i> Request timed out. Please check your connection and try again.'
+                        : '<i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again or WhatsApp us directly.';
                     resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-            } catch (err) {
-                resultBox.style.display = 'block';
-                resultBox.style.background = '#fff0f0';
-                resultBox.style.border = '1.5px solid #e55';
-                resultBox.style.color = '#c00';
-                resultBox.innerHTML = '<i class="fas fa-wifi"></i> Network error. Please check your connection and try again.';
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Submit Appointment Request</span>';
             }

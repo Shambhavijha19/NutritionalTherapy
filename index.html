@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
     <title>Nutritional Therapy by Dt. Shreya — Premium Health Consultation</title>
-    <link rel="stylesheet" href="styles.css?v=2.4">
+    <link rel="stylesheet" href="styles.css?v=2.6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -447,12 +447,9 @@
             </p>
 
             <div class="form-card reveal">
-                <!-- FormSubmit configuration (Strict Anti-Spam & Table Template) -->
-                <form id="appointment-form"
-                <!-- Web3Forms — AJAX, no email confirmation needed, works immediately -->
                 <form id="appointment-form" novalidate>
 
-                    <!-- Web3Forms required hidden fields -->
+                    <!-- Web3Forms hidden fields -->
                     <input type="hidden" name="access_key" value="f60c5b23-f42a-4fa2-b23a-00752e16c5e0">
                     <input type="hidden" name="subject"    value="&#128203; New Appointment Request — Nutritional Therapy by Dt. Shreya">
                     <input type="hidden" name="from_name"  value="Nutritional Therapy Website">
@@ -541,30 +538,22 @@
                             </div>
                         </div>
                         <div class="payment-note">
-                            <i class="fas fa-info-circle"></i>
+                            <i class="fab fa-whatsapp" style="color:#25d366;font-size:1.1rem"></i>
                             <div class="note-text">
-                                <p>Kindly share the payment confirmation screenshot once done.</p>
-                                <p>Your personalized plan will begin immediately after confirmation.</p>
+                                <p>After payment, send your screenshot on <strong><a href="https://wa.me/918229022055" target="_blank" style="color:var(--green-600)">WhatsApp +91 82290 22055</a></strong></p>
+                                <p>Your plan starts immediately after confirmation!</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Payment Proof Upload -->
-                    <div class="form-group">
-                        <label for="payment-proof">Upload Payment Proof * (Image or PDF)</label>
-                        <input type="file" id="payment-proof" name="10_Payment_Proof"
-                               accept="image/jpeg,image/png,image/gif,image/webp,application/pdf"
-                               required>
-                        <div class="payment-required">
-                            <i class="fas fa-paperclip"></i>
-                            Accepted formats: JPG, PNG, GIF, WebP, PDF — Max 10MB
-                        </div>
-                    </div>
-
+                    <!-- Submit -->
                     <button type="submit" class="btn form-submit-btn" id="submit-btn">
                         <i class="fas fa-paper-plane"></i>
                         <span>Submit Appointment Request</span>
                     </button>
+
+                    <!-- Result -->
+                    <div id="form-result" style="display:none; margin-top:16px; padding:16px; border-radius:10px; text-align:center; font-weight:600;"></div>
                 </form>
             </div>
         </div>
@@ -734,7 +723,7 @@
         </a>
     </div>
 
-    <script src="script.js?v=2.5"></script>
+    <script src="script.js?v=2.6"></script>
 
     <!-- Inline: Payment & QR functions (global scope required for onclick) -->
     <script>
