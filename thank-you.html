@@ -7,7 +7,7 @@
     <title>Booking Confirmed — Nutritional Therapy by Dt. Shreya</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,336 +22,445 @@
             --white:     #ffffff;
             --text-dark: #1a2e22;
             --text-mid:  #4a6358;
-            --whatsapp:  #25d366;
+            --wa:        #25d366;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--green-900) 0%, #0f2419 100%);
             min-height: 100vh;
+            background: linear-gradient(160deg, #0d1f14 0%, #1a3a2a 50%, #0d1f14 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 24px;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .page-wrap {
+        /* Decorative blobs */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.18;
+            pointer-events: none;
+        }
+        body::before {
+            width: 500px; height: 500px;
+            background: var(--gold);
+            top: -150px; right: -150px;
+        }
+        body::after {
+            width: 400px; height: 400px;
+            background: var(--green-600);
+            bottom: -100px; left: -100px;
+        }
+
+        .wrap {
             width: 100%;
-            max-width: 600px;
+            max-width: 580px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* ── Logo ── */
-        .logo-bar {
+        /* Logo */
+        .logo {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
-        .logo-bar img {
-            height: 52px;
-            display: inline-block;
-        }
+        .logo img { height: 48px; }
 
-        /* ── Card ── */
+        /* Main card */
         .card {
-            background: var(--white);
-            border-radius: 24px;
+            background: rgba(255,255,255,0.97);
+            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
         }
 
-        /* ── Header band ── */
-        .card-header {
-            background: linear-gradient(135deg, var(--green-800), var(--green-700));
-            padding: 40px 32px 32px;
+        /* Top hero band */
+        .hero-band {
+            background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 60%, #2d5a3d 100%);
+            padding: 44px 36px 56px;
             text-align: center;
             position: relative;
         }
-        .card-header::after {
+        .hero-band::after {
             content: '';
             position: absolute;
-            bottom: -1px; left: 0; right: 0;
-            height: 40px;
-            background: var(--white);
+            bottom: -2px; left: 0; right: 0;
+            height: 48px;
+            background: rgba(255,255,255,0.97);
             border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
-        .check-icon {
-            width: 80px; height: 80px;
-            background: rgba(255,255,255,0.15);
-            border: 3px solid rgba(255,255,255,0.4);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+
+        /* Animated check */
+        .check-ring {
+            width: 88px; height: 88px;
             margin: 0 auto 20px;
-            font-size: 2.2rem;
+            position: relative;
+        }
+        .check-ring svg {
+            width: 88px; height: 88px;
+            transform: rotate(-90deg);
+        }
+        .check-ring .bg-circle { fill: none; stroke: rgba(255,255,255,0.12); stroke-width: 4; }
+        .check-ring .progress-circle {
+            fill: none; stroke: var(--gold-light); stroke-width: 4;
+            stroke-dasharray: 251;
+            stroke-dashoffset: 251;
+            stroke-linecap: round;
+            animation: drawCircle 1s ease forwards 0.3s;
+        }
+        @keyframes drawCircle {
+            to { stroke-dashoffset: 0; }
+        }
+        .check-icon-inner {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             color: var(--white);
-            animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
+            animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards 0.8s;
+            transform: scale(0);
+            opacity: 0;
         }
         @keyframes popIn {
-            0%   { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            to { transform: scale(1); opacity: 1; }
         }
-        .card-header h1 {
+
+        .hero-band h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--white);
             margin-bottom: 8px;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+            opacity: 0;
+            transform: translateY(12px);
         }
-        .card-header p {
-            color: rgba(255,255,255,0.85);
+        .hero-band p {
+            color: rgba(255,255,255,0.75);
             font-size: 0.95rem;
+            animation: fadeUp 0.6s ease forwards 0.55s;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Body ── */
-        .card-body {
-            padding: 16px 32px 36px;
+        /* Body */
+        .body {
+            padding: 8px 36px 40px;
         }
 
-        /* ── Booking Summary ── */
-        .booking-summary {
+        /* Booking summary */
+        .summary-card {
             background: var(--green-100);
-            border: 1px solid rgba(58,158,107,0.2);
-            border-radius: 14px;
+            border: 1.5px solid rgba(45,122,82,0.2);
+            border-radius: 16px;
             padding: 20px 24px;
             margin-bottom: 28px;
+            animation: fadeUp 0.6s ease forwards 0.7s;
+            opacity: 0;
+            transform: translateY(12px);
         }
-        .booking-summary h3 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--green-700);
-            letter-spacing: 0.08em;
+        .summary-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            color: var(--green-700);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .summary-row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            font-size: 0.92rem;
+            font-size: 0.875rem;
             color: var(--text-mid);
-            margin-bottom: 6px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(45,122,82,0.1);
         }
-        .summary-row:last-child { margin-bottom: 0; }
-        .summary-row i { color: var(--green-700); width: 16px; text-align: center; }
-        .summary-row strong { color: var(--text-dark); }
+        .summary-row:last-child { border-bottom: none; }
+        .summary-row .label { display: flex; align-items: center; gap: 8px; }
+        .summary-row .label i { color: var(--green-700); width: 14px; }
+        .summary-row .value { font-weight: 600; color: var(--text-dark); }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff7e0;
+            border: 1px solid #e8c84a;
+            color: #8a6500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-badge i { font-size: 0.65rem; }
 
-        /* ── Steps ── */
-        .steps-label {
-            font-size: 0.8rem;
+        /* Steps */
+        .steps-section {
+            margin-bottom: 28px;
+            animation: fadeUp 0.6s ease forwards 0.85s;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        .steps-heading {
+            font-size: 0.72rem;
             font-weight: 700;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
             color: var(--text-mid);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
-        .step {
+        .step-row {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             align-items: flex-start;
-            margin-bottom: 20px;
         }
-        .step-num {
-            width: 36px; height: 36px; min-width: 36px;
+        .step-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 32px;
+        }
+        .step-dot {
+            width: 32px; height: 32px;
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
             font-weight: 700;
+            flex-shrink: 0;
         }
-        .step-num.done {
-            background: var(--green-700);
-            color: var(--white);
+        .step-dot.done { background: var(--green-700); color: #fff; }
+        .step-dot.active { background: var(--gold); color: #fff; }
+        .step-dot.idle { background: #e5e5e5; color: #999; }
+        .step-line {
+            width: 2px;
+            flex: 1;
+            min-height: 20px;
+            background: #e5e5e5;
+            margin: 4px 0;
         }
-        .step-num.pending {
-            background: var(--gold);
-            color: var(--white);
+        .step-content {
+            padding-bottom: 22px;
         }
         .step-content h4 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 3px;
         }
         .step-content p {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-mid);
             line-height: 1.55;
         }
-        .step-divider {
-            width: 2px;
-            height: 16px;
-            background: #e0e0e0;
-            margin: 0 0 4px 17px;
-        }
 
-        /* ── WhatsApp Button ── */
+        /* WhatsApp Button */
         .wa-btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
+            gap: 14px;
+            background: var(--wa);
+            color: #fff;
+            border-radius: 16px;
             padding: 18px 24px;
-            background: var(--whatsapp);
-            color: var(--white);
-            border-radius: 14px;
-            font-size: 1.05rem;
-            font-weight: 700;
             text-decoration: none;
-            margin-top: 24px;
+            width: 100%;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+            animation: fadeUp 0.6s ease forwards 1s;
+            opacity: 0;
+            transform: translateY(12px);
         }
         .wa-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(37,211,102,0.45);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(37,211,102,0.45);
         }
-        .wa-btn i { font-size: 1.3rem; }
-        .wa-btn .wa-sub {
-            font-size: 0.78rem;
-            font-weight: 400;
-            opacity: 0.9;
-            display: block;
-            text-align: left;
-        }
+        .wa-btn i.fa-whatsapp { font-size: 1.8rem; }
+        .wa-text { flex: 1; }
+        .wa-text strong { display: block; font-size: 1rem; font-weight: 700; }
+        .wa-text span { font-size: 0.8rem; opacity: 0.88; }
+        .wa-btn .arrow { font-size: 1.1rem; opacity: 0.7; }
 
-        /* ── Footer note ── */
+        /* Footer */
         .card-footer {
-            border-top: 1px solid #f0f0f0;
-            padding: 20px 32px;
+            border-top: 1px solid #f0f4f0;
+            padding: 18px 36px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            flex-wrap: wrap;
+            background: #fafcfa;
         }
-        .card-footer p {
-            font-size: 0.82rem;
-            color: var(--text-mid);
-        }
-        .home-link {
-            font-size: 0.82rem;
+        .footer-note { font-size: 0.8rem; color: var(--text-mid); }
+        .footer-note strong { color: var(--text-dark); }
+        .back-link {
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--green-700);
             text-decoration: none;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
-        .home-link:hover { text-decoration: underline; }
+        .back-link:hover { text-decoration: underline; }
 
         @media (max-width: 480px) {
-            .card-header { padding: 32px 20px 28px; }
-            .card-body   { padding: 12px 20px 28px; }
-            .card-footer { padding: 16px 20px; }
-            .card-header h1 { font-size: 1.8rem; }
+            .hero-band { padding: 36px 20px 48px; }
+            .hero-band h1 { font-size: 1.9rem; }
+            .body { padding: 8px 20px 32px; }
+            .card-footer { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="page-wrap">
-
-    <!-- Logo -->
-    <div class="logo-bar">
+    <div class="logo">
         <img src="images/logo.webp" alt="Nutritional Therapy by Dt. Shreya">
     </div>
 
     <div class="card">
 
-        <!-- Header -->
-        <div class="card-header">
-            <div class="check-icon">
-                <i class="fas fa-check"></i>
+        <!-- Hero Band -->
+        <div class="hero-band">
+            <div class="check-ring">
+                <svg viewBox="0 0 88 88">
+                    <circle class="bg-circle" cx="44" cy="44" r="40"/>
+                    <circle class="progress-circle" cx="44" cy="44" r="40"/>
+                </svg>
+                <div class="check-icon-inner"><i class="fas fa-check"></i></div>
             </div>
-            <h1>Booking Received!</h1>
-            <p id="header-sub">Your appointment request is confirmed. One step left.</p>
+            <h1>Booking Confirmed!</h1>
+            <p id="hero-sub">Your appointment request has been received.</p>
         </div>
 
         <!-- Body -->
-        <div class="card-body">
+        <div class="body">
 
-            <!-- Booking Summary -->
-            <div class="booking-summary">
-                <h3>&#128203; Booking Summary</h3>
-                <div class="summary-row">
-                    <i class="fas fa-user"></i>
-                    <span>Name: <strong id="summary-name">—</strong></span>
+            <!-- Summary -->
+            <div class="summary-card">
+                <div class="summary-title">
+                    <i class="fas fa-receipt"></i> Booking Summary
                 </div>
                 <div class="summary-row">
-                    <i class="fas fa-leaf"></i>
-                    <span>Plan: <strong id="summary-plan">—</strong></span>
+                    <span class="label"><i class="fas fa-user"></i> Client Name</span>
+                    <span class="value" id="s-name">—</span>
                 </div>
                 <div class="summary-row">
-                    <i class="fas fa-clock"></i>
-                    <span>Status: <strong style="color:var(--gold)">Awaiting Payment Confirmation</strong></span>
+                    <span class="label"><i class="fas fa-leaf"></i> Selected Plan</span>
+                    <span class="value" id="s-plan">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label"><i class="fas fa-circle-dot"></i> Status</span>
+                    <span class="status-badge"><i class="fas fa-circle"></i> Awaiting Payment</span>
                 </div>
             </div>
 
             <!-- Steps -->
-            <p class="steps-label">&#9989; What happens next?</p>
+            <div class="steps-section">
+                <p class="steps-heading">What happens next?</p>
 
-            <div class="step">
-                <div class="step-num done"><i class="fas fa-check"></i></div>
-                <div class="step-content">
-                    <h4>Step 1 — Form Submitted ✓</h4>
-                    <p>Your details have been received by Dt. Shreya.</p>
+                <div class="step-row">
+                    <div class="step-left">
+                        <div class="step-dot done"><i class="fas fa-check"></i></div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Form Submitted ✓</h4>
+                        <p>Dt. Shreya has received your details and health goals.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-divider"></div>
 
-            <div class="step">
-                <div class="step-num pending">2</div>
-                <div class="step-content">
-                    <h4>Step 2 — Send Payment Screenshot</h4>
-                    <p>Complete your UPI payment and then tap the WhatsApp button below to send the payment screenshot to Dt. Shreya.</p>
+                <div class="step-row">
+                    <div class="step-left">
+                        <div class="step-dot active">2</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Complete Payment &amp; Send Screenshot</h4>
+                        <p>Make the UPI payment for your selected plan and tap the WhatsApp button below to send your payment screenshot directly to Dt. Shreya.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-divider"></div>
 
-            <div class="step">
-                <div class="step-num pending">3</div>
-                <div class="step-content">
-                    <h4>Step 3 — Plan Starts!</h4>
-                    <p>Once your payment is confirmed, your personalised diet plan will be shared within a few hours.</p>
+                <div class="step-row">
+                    <div class="step-left">
+                        <div class="step-dot idle">3</div>
+                    </div>
+                    <div class="step-content">
+                        <h4>Your Plan Begins!</h4>
+                        <p>Once confirmed, your personalised diet plan will be shared within a few hours. Your wellness journey starts here.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- WhatsApp CTA -->
-            <a id="wa-send-btn" href="#" class="wa-btn" target="_blank">
+            <a id="wa-btn" href="#" class="wa-btn" target="_blank" rel="noopener">
                 <i class="fab fa-whatsapp"></i>
-                <div>
-                    Send Payment Screenshot
-                    <span class="wa-sub">Tap to open WhatsApp with a pre-filled message</span>
+                <div class="wa-text">
+                    <strong>Send Payment Screenshot</strong>
+                    <span>Opens WhatsApp with a message ready to send</span>
                 </div>
+                <i class="fas fa-arrow-right arrow"></i>
             </a>
 
         </div>
 
         <!-- Footer -->
         <div class="card-footer">
-            <p>Questions? Call <strong>+91 82290 22055</strong></p>
-            <a href="index.html" class="home-link">&#8592; Back to Home</a>
+            <p class="footer-note">Need help? Call <strong>+91 82290 22055</strong></p>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
         </div>
 
     </div>
 </div>
 
 <script>
-    // Read name and plan from URL params
-    const params  = new URLSearchParams(window.location.search);
-    const name    = params.get('name')  || 'there';
-    const plan    = params.get('plan')  || 'your selected plan';
+    const params = new URLSearchParams(window.location.search);
+    const name   = params.get('name') || '';
+    const plan   = params.get('plan') || '';
 
-    // Personalise summary
-    document.getElementById('summary-name').textContent = name;
-    document.getElementById('summary-plan').textContent = plan;
-    document.getElementById('header-sub').textContent   =
-        `Hi ${name}! Your request is confirmed. One step left.`;
+    // Populate summary
+    document.getElementById('s-name').textContent = name || '—';
+    document.getElementById('s-plan').textContent = plan || '—';
+    if (name) {
+        document.getElementById('hero-sub').textContent =
+            'Hi ' + name + '! Your request is confirmed — one step left.';
+    }
 
-    // Build pre-filled WhatsApp message
-    const phone = '918229022055'; // Dt. Shreya's WhatsApp (no + sign, no spaces)
-    const msg   = `Hi Dt. Shreya! 👋\n\nI just submitted my appointment form.\n\n📋 Name: ${name}\n🌿 Plan: ${plan}\n\nI have completed the payment. Please find the screenshot attached. Please confirm my booking. 🙏`;
-    const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    // Build clean WhatsApp message (no special chars that break encoding)
+    const phone  = '918229022055';
+    const planClean = plan.replace(/[^\w\s\-.,()]/g, '').trim(); // strip rupee/emojis for WA URL
+    const msg = [
+        'Hi Dt. Shreya!',
+        '',
+        'I just submitted my appointment request on your website.',
+        '',
+        'Name: ' + (name || 'N/A'),
+        'Plan: ' + (plan || 'N/A'),
+        '',
+        'I have completed the payment. Please find the screenshot attached.',
+        'Kindly confirm my booking.',
+        '',
+        'Thank you!'
+    ].join('\n');
 
-    document.getElementById('wa-send-btn').href = waUrl;
+    document.getElementById('wa-btn').href =
+        'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
 </script>
-
 </body>
 </html>
-<!-- updated Tue Jul  7 02:38:11 PM IST 2026 -->
